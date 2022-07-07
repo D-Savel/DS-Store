@@ -50,8 +50,8 @@ function Header(props) {
                 <MenuItem onClick={() => (setSelect('accessories'))}>accessories</MenuItem>
               </Link>
             </MenuList>
+            <Link as={ReachLink} to={'/Contact'} px="5">Contact</Link>
           </Menu>
-          <Link as={ReachLink} to={'/Contact'} px="5">Contact</Link>
         </HStack>
       </Box>
 
