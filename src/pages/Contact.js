@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Container,
+  Flex,
   FormControl,
   FormLabel,
   FormErrorMessage,
@@ -42,7 +43,7 @@ function Contact(props) {
 
   return (
     <>
-      <Container maxW='md' mt='2'>
+      <Flex mt='4' align='start'>
         <Box border='1px' borderColor='gray.200' borderRadius='lg' p='2'>
           <Heading as='h2' size='lg' noOfLines={1} color='teal' >Contact</Heading>
           <Box as="form" onSubmit={onSubmitForm}>
@@ -84,7 +85,6 @@ function Contact(props) {
               <InputGroup p='1'>
                 <FormLabel htmlFor="email"> </FormLabel>
                 <InputLeftAddon minWidth='100' children='Email' color='teal' />
-
                 <Input
                   required='required'
                   id='email'
@@ -101,12 +101,8 @@ function Contact(props) {
               <Textarea
                 required='required'
                 id='textValue'
-                mt='2'
-                aria-label="text field"
-                name='textValue'
-                value={form.textValue}
-                type='text'
-                placeholder='Your text here'
+                mt='4'
+                placeholder=' Your text here'
                 size='md'
                 h='150'
                 isInvalid={form.textValue === "" ? true : false}
@@ -123,7 +119,7 @@ function Contact(props) {
             </Button>
           </Box>
         </Box>
-      </Container>
+      </Flex>
     </>
   )
 }
