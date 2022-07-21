@@ -1,7 +1,7 @@
 import { useState } from "react"
 import './App.css';
 import { Route, Routes } from "react-router-dom"
-import Header from './Components/Header';
+import Navigation from "./Components/Navigation";
 import Home from "./pages/Home"
 import Products from "./pages/Products"
 import Contact from "./pages/Contact"
@@ -9,11 +9,11 @@ import Offer from "./pages/Offer"
 
 function App() {
 
-  const [select, setSelect] = useState("")
+  const [select, setSelect] = useState("start")
 
   return (
     <div className="App">
-      <Header setSelect={setSelect} />
+      <Navigation setSelect={setSelect} />
 
       <Routes>
         <Route path="/" element={<Home />} />

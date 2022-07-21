@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from "react"
 import {
   Box,
   Button,
@@ -15,7 +15,7 @@ import {
   HStack,
   Stack,
   Textarea
-} from '@chakra-ui/react'
+} from "@chakra-ui/react"
 
 function Contact(props) {
 
@@ -25,6 +25,8 @@ function Contact(props) {
     email: "",
     textValue: "",
   })
+
+  const { firstName, lastName, email, textValue } = form
 
   const onUpdateField = e => {
     const nextFormState = {
@@ -43,78 +45,81 @@ function Contact(props) {
 
   return (
     <>
-      <Flex mt='4' align='start'>
-        <Box border='1px' borderColor='gray.200' borderRadius='lg' p='2'>
-          <Heading as='h2' size='lg' noOfLines={1} color='teal' >Contact</Heading>
+      <Flex px="2" mt="2" align="start">
+        <Box border="1px" borderColor="gray.200" borderRadius="lg" p="2">
+          <Heading as="h2" size="lg" noOfLines={1} color="teal" >Contact</Heading>
           <Box as="form" onSubmit={onSubmitForm}>
             <HStack>
               <FormControl isRequired>
-                <InputGroup p='1'>
+                <InputGroup p="1">
                   <FormLabel htmlFor="firstName"> </FormLabel>
-                  <InputLeftAddon minWidth='100' children='Firstname' color='teal' />
+                  <InputLeftAddon minWidth="100" children="Firstname" color="teal" />
                   <Input
-                    required='required'
-                    id='firstName'
-                    name='firstName'
+                    required="required"
+                    id="firstName"
+                    name="firstName"
                     aria-label="firstname field"
-                    value={form.firstName}
-                    type='text'
-                    placeholder='John'
+                    value={firstName}
+                    type="text"
+                    placeholder="John"
                     onChange={onUpdateField}
-                    isInvalid={form.firstName === "" ? true : false} />
+                    isInvalid={firstName === "" ? true : false} />
                 </InputGroup>
               </FormControl>
             </HStack>
             <FormControl isRequired>
-              <InputGroup p='1'>
+              <InputGroup p="1">
                 <FormLabel htmlFor="lastName"> </FormLabel>
-                <InputLeftAddon minWidth='100' children='Lastname' color='teal' />
+                <InputLeftAddon minWidth="100" children="Lastname" color="teal" />
                 <Input
-                  required='required'
-                  id='lastName'
-                  name='lastName'
+                  required="required"
+                  id="lastName"
+                  name="lastName"
                   aria-label="lastname field"
-                  value={form.lastName}
-                  type='text'
-                  placeholder='Doe'
+                  value={lastName}
+                  type="text"
+                  placeholder="Doe"
                   onChange={onUpdateField}
-                  isInvalid={form.lastName === "" ? true : false} />
+                  isInvalid={lastName === "" ? true : false} />
               </InputGroup>
             </FormControl>
             <FormControl isRequired>
-              <InputGroup p='1'>
+              <InputGroup p="1">
                 <FormLabel htmlFor="email"> </FormLabel>
-                <InputLeftAddon minWidth='100' children='Email' color='teal' />
+                <InputLeftAddon minWidth="100" children="Email" color="teal" />
                 <Input
-                  required='required'
-                  id='email'
-                  name='email'
+                  required="required"
+                  id="email"
+                  name="email"
                   aria-label="email field"
-                  value={form.email} type='email'
-                  placeholder='mail@xyz.com'
+                  value={email}
+                  type="email"
+                  placeholder="mail@xyz.com"
                   onChange={onUpdateField}
-                  isInvalid={form.email === "" ? true : false} />
+                  isInvalid={email === "" ? true : false} />
               </InputGroup>
             </FormControl>
             <FormControl isRequired>
               <FormLabel pt="3" my="0" htmlFor="textValue">Message</FormLabel>
               <Textarea
-                required='required'
-                id='textValue'
-                mt='4'
-                placeholder=' Your text here'
-                size='md'
-                h='150'
-                isInvalid={form.textValue === "" ? true : false}
+                required="required"
+                id="textValue"
+                name="textValue"
+                value={textValue}
+                mt="4"
+                placeholder=" Your text here"
+                size="md"
+                h="150"
+                isInvalid={textValue === "" ? true : false}
                 onChange={onUpdateField}
               />
             </FormControl>
             <Button
-              type='submit'
-              mt='4'
-              loadingText='Submitting'
-              colorScheme='teal'
-              variant='outline'
+              type="submit"
+              mt="4"
+              loadingText="Submitting"
+              colorScheme="teal"
+              variant="outline"
             >Submit
             </Button>
           </Box>
