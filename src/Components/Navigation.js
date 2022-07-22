@@ -31,26 +31,20 @@ const Navigation = (props) => {
       <Flex align="center" justify="space-between" direction="row">
         <Box as="nav" bg="gray.400" >
           {isMobile ? (
-
-            <MobileNavigation>
-              <Flex align="start" justify="space-between" direction="column">
-                <NavigationListItems setSelect={setSelect} />
-              </Flex>
-            </MobileNavigation>
-
+            <MobileNavigation setSelect={setSelect} />
           ) : (
             <NavigationListItems setSelect={setSelect} />
           )}
         </Box>
         <Box>
           {colorMode === "light" ?
-            <Button mr="2" color="gray.300" onClick={toggleColorMode} size="sm">
+            <Button mr="2" colorScheme='blackAlpha' variant='solid' onClick={toggleColorMode} size="sm">
               <MoonIcon color="yellow" w="6" h="6" />
             </Button>
-            : <Button mr="2" color="yellow" onClick={toggleColorMode} size="sm">
+            : <Button mr="2" colorScheme='yellow' variant='solid' onClick={toggleColorMode} size="sm">
               <SunIcon color="white" w="6" h="6" />
             </Button>}
-          <Badge border="1px" borderColor="gray.200" borderRadiusRight="lg" color="white">
+          <Badge border="1px" borderColor="gray.200" borderLeftRadius="lg" color="white">
             <Flex direction="row" >
               <HStack mr="2" align="center">
                 <Badge p="2" borderRadius="lg" variant="solid" colorScheme="gray">
