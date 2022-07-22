@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link as ReachLink } from "react-router-dom"
 import NavigationListItems from "./NavigationListItems"
 import MobileNavigation from "./MobileNavigation"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -9,6 +10,7 @@ import {
   Container,
   Flex,
   HStack,
+  Link,
   StackDivider,
   useMediaQuery,
   useColorMode,
@@ -38,18 +40,20 @@ const Navigation = (props) => {
         </Box>
         <Box>
           {colorMode === "light" ?
-            <Button mr="2" colorScheme='blackAlpha' variant='solid' onClick={toggleColorMode} size="sm">
-              <MoonIcon color="yellow" w="6" h="6" />
+            <Button mr="2" px="0" colorScheme='blackAlpha' variant='solid' onClick={toggleColorMode} size="sm">
+              <MoonIcon color="yellow" w="-" h="6" />
             </Button>
-            : <Button mr="2" colorScheme='yellow' variant='solid' onClick={toggleColorMode} size="sm">
+            : <Button mr="2" px="0" colorScheme='yellow' variant='solid' onClick={toggleColorMode} size="sm">
               <SunIcon color="white" w="6" h="6" />
             </Button>}
           <Badge border="1px" borderColor="gray.200" borderLeftRadius="lg" color="white">
             <Flex direction="row" >
               <HStack mr="2" align="center">
-                <Badge p="2" borderRadius="lg" variant="solid" colorScheme="gray">
-                  <FontAwesomeIcon size="2xl" icon="fa-solid fa-cart-shopping" color="black" />
-                </Badge>
+                <Link as={ReachLink} to={"/Cart"} >
+                  <Badge as="button" p="2" borderRadius="lg" variant="solid" colorScheme="gray">
+                    <FontAwesomeIcon size="2xl" icon="fa-solid fa-cart-shopping" color="black" />
+                  </Badge>
+                </Link>
               </HStack>
               <VStack minW="40px" align="center" divider={<StackDivider borderColor="black" />}
                 spacing={0.5}>

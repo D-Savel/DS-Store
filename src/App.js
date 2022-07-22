@@ -6,6 +6,7 @@ import Home from "./pages/Home"
 import Products from "./pages/Products"
 import Contact from "./pages/Contact"
 import Offer from "./pages/Offer"
+import Cart from "./Components/Cart"
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/Products" element={<Products select={select} />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Offer" element={<Offer />} />
+        <Route path="/Cart" element={<Cart />} />
       </Routes>
     </div>
   );
