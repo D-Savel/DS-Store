@@ -6,7 +6,7 @@ import Home from "./pages/Home"
 import Products from "./pages/Products"
 import Contact from "./pages/Contact"
 import Offer from "./pages/Offer"
-import Cart from "./Components/Cart"
+import Cart from "./pages/Cart"
 
 function App() {
 

@@ -1,8 +1,12 @@
+import Carousel from "../Components/Carousel"
+
 function Home(props) {
 
   return (
-
-    <p>Home</p>
+    <>
+      <p>Home</p>
+      <Carousel />
+    </>
   )
 }
 
