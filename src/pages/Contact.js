@@ -1,29 +1,25 @@
-import { useState } from "react"
+import { useState } from 'react'
 import {
   Box,
   Button,
-  Container,
   Flex,
   FormControl,
   FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   Heading,
   InputLeftAddon,
   Input,
   InputGroup,
   HStack,
-  Stack,
   Textarea
-} from "@chakra-ui/react"
+} from '@chakra-ui/react'
 
 function Contact(props) {
 
   const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    textValue: "",
+    firstName: '',
+    lastName: '',
+    email: '',
+    textValue: '',
   })
 
   const { firstName, lastName, email, textValue } = form
@@ -38,88 +34,88 @@ function Contact(props) {
 
   const onSubmitForm = e => {
     e.preventDefault()
-    alert("your email has been sent\n\n" + JSON.stringify(form, null, 2))
+    alert('your email has been sent\n\n' + JSON.stringify(form, null, 2))
   }
 
 
 
   return (
     <>
-      <Flex px="2" mt="2" align="start">
-        <Box border="1px" borderColor="gray.200" borderRadius="lg" p="2">
-          <Heading as="h2" size="lg" noOfLines={1} color="teal" >Contact</Heading>
-          <Box as="form" onSubmit={onSubmitForm}>
+      <Flex px='2' mt='2' align='start'>
+        <Box border='1px' borderColor='gray.200' borderRadius='lg' p='2'>
+          <Heading as='h2' size='lg' noOfLines={1} color='teal' >Contact</Heading>
+          <Box as='form' onSubmit={onSubmitForm}>
             <HStack>
               <FormControl isRequired>
-                <InputGroup p="1">
-                  <FormLabel htmlFor="firstName"> </FormLabel>
-                  <InputLeftAddon minWidth="100" children="Firstname" color="teal" />
+                <InputGroup p='1'>
+                  <FormLabel htmlFor='firstName'> </FormLabel>
+                  <InputLeftAddon minWidth='100' children='Firstname' color='teal' />
                   <Input
-                    required="required"
-                    id="firstName"
-                    name="firstName"
-                    aria-label="firstname field"
+                    required='required'
+                    id='firstName'
+                    name='firstName'
+                    aria-label='firstname field'
                     value={firstName}
-                    type="text"
-                    placeholder="John"
+                    type='text'
+                    placeholder='John'
                     onChange={onUpdateField}
-                    isInvalid={firstName === "" ? true : false} />
+                    isInvalid={firstName === '' ? true : false} />
                 </InputGroup>
               </FormControl>
             </HStack>
             <FormControl isRequired>
-              <InputGroup p="1">
-                <FormLabel htmlFor="lastName"> </FormLabel>
-                <InputLeftAddon minWidth="100" children="Lastname" color="teal" />
+              <InputGroup p='1'>
+                <FormLabel htmlFor='lastName'> </FormLabel>
+                <InputLeftAddon minWidth='100' children='Lastname' color='teal' />
                 <Input
-                  required="required"
-                  id="lastName"
-                  name="lastName"
-                  aria-label="lastname field"
+                  required='required'
+                  id='lastName'
+                  name='lastName'
+                  aria-label='lastname field'
                   value={lastName}
-                  type="text"
-                  placeholder="Doe"
+                  type='text'
+                  placeholder='Doe'
                   onChange={onUpdateField}
-                  isInvalid={lastName === "" ? true : false} />
+                  isInvalid={lastName === '' ? true : false} />
               </InputGroup>
             </FormControl>
             <FormControl isRequired>
-              <InputGroup p="1">
-                <FormLabel htmlFor="email"> </FormLabel>
-                <InputLeftAddon minWidth="100" children="Email" color="teal" />
+              <InputGroup p='1'>
+                <FormLabel htmlFor='email'> </FormLabel>
+                <InputLeftAddon minWidth='100' children='Email' color='teal' />
                 <Input
-                  required="required"
-                  id="email"
-                  name="email"
-                  aria-label="email field"
+                  required='required'
+                  id='email'
+                  name='email'
+                  aria-label='email field'
                   value={email}
-                  type="email"
-                  placeholder="mail@xyz.com"
+                  type='email'
+                  placeholder='mail@xyz.com'
                   onChange={onUpdateField}
-                  isInvalid={email === "" ? true : false} />
+                  isInvalid={email === '' ? true : false} />
               </InputGroup>
             </FormControl>
             <FormControl isRequired>
-              <FormLabel pt="3" my="0" htmlFor="textValue">Message</FormLabel>
+              <FormLabel pt='3' my='0' htmlFor='textValue'>Message</FormLabel>
               <Textarea
-                required="required"
-                id="textValue"
-                name="textValue"
+                required='required'
+                id='textValue'
+                name='textValue'
                 value={textValue}
-                mt="4"
-                placeholder=" Your text here"
-                size="md"
-                h="150"
-                isInvalid={textValue === "" ? true : false}
+                mt='4'
+                placeholder=' Your text here'
+                size='md'
+                h='150'
+                isInvalid={textValue === '' ? true : false}
                 onChange={onUpdateField}
               />
             </FormControl>
             <Button
-              type="submit"
-              mt="4"
-              loadingText="Submitting"
-              colorScheme="teal"
-              variant="outline"
+              type='submit'
+              mt='4'
+              loadingText='Submitting'
+              colorScheme='teal'
+              variant='outline'
             >Submit
             </Button>
           </Box>
