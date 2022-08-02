@@ -19,14 +19,14 @@ const ASideMenu = (props) => {
 
 
   return (
-    <Box>
+    <Box sx={{ overflow: "scroll", height: "100vh" }}>
       <Flex align='center' justify='center' direction='column'>
-        <Badge w='85%' borderRadius='md' size='lg' py='2' variant='solid' colorScheme='teal'>
+        <Badge w='90%' borderRadius='md' fontSize='1em' size='lg' py='1' variant='solid' colorScheme='teal'>
           Products
         </Badge>
         {categories.map((category) => {
           return (
-            <List py='1' key={category.id}>
+            <List key={category.id}>
               < Menu >
                 <Tooltip label='Click for shopping >' placement='left' bg='teal.500'>
                   <Link
@@ -42,7 +42,6 @@ const ASideMenu = (props) => {
                   </Link>
                 </Tooltip>
               </Menu>
-
             </List>
           )
         })}

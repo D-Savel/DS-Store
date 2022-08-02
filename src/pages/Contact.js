@@ -82,8 +82,7 @@ function Contact(props) {
             <FormControl isRequired>
               <InputGroup p='1'>
                 <FormLabel htmlFor='email'> </FormLabel>
-                <InputLeftAddon minWidth='100' children='Email' color='teal' />
-                <Input
+                <InputLeftAddon minWidth='100' children='Email' color='teal' />                <Input
                   required='required'
                   id='email'
                   name='email'
