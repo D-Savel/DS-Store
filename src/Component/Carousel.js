@@ -1,0 +1,79 @@
+import { products } from '../data/products.js'
+import {
+  Button,
+  Heading,
+  Center,
+  Box,
+  Flex,
+  Image,
+  Text
+} from '@chakra-ui/react'
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
+import { useState, useEffect, } from 'react'
+
+const Carousel = () => {
+  const [index, setIndex] = useState(0)
+  const nextClick = () => {
+    index === products.length - 1 ? setIndex(0) : setIndex((current => current + 1))
+  }
+  const previousClick = () => {
+    index === 0 ? setIndex(products.length - 1) : setIndex((current => current - 1))
+  }
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      index === products.length - 1 ? setIndex(0) : setIndex((current => current + 1))
+    }, 4000);
+    return () => clearInterval(intervalId)
+  }, [index]);
+
+  return (
+    <>
+      < Box px='1' textAlign='center' backgroundColor='teal.500' borderWidth='1px' borderBottomWidth='0px' borderTopRadius='md' py='0' >
+        <Flex py='1' justify='space-between' align='center'>
+          <Button pt='1' size='xs' colorScheme='gray' variant='outline' onClick={previousClick}>
+            <ChevronLeftIcon w={4} h={4} />
+            Previous
+          </Button>
+          <Heading as='h2' size='sm'>
+            {products[index].name}
+          </Heading>
+          <Button pt='1' size='xs' colorScheme='gray' variant='outline' onClick={nextClick}>
+            Next
+            <ChevronRightIcon w={4} h={4} />
+          </Button>
+        </Flex>
+      </Box >
+      <Center position='relative' z-index='1' py='2' pb='10' borderWidth='1px' borderBottomRadius='md' overflow='hidden'>
+        <Image
+          borderRadius='lg'
+          src={products[index].imgUrl} alt={products[index].name} />
+        <Box position='absolute' z-index='0' right='auto' left='1' bottom='1'>
+          {products[index].isOffer && (
+            <Text fontSize='20' color='red'>
+              Special Offer : {products[index].offerPercent}% off
+              <ChevronRightIcon w={4} h={4} />
+            </Text>
+          )}
+        </Box>
+        <Box position='absolute' z-index='0' right='1' left='auto' bottom='0'>
+          <Button
+            border='2px'
+            borderRadius='sx'
+            px='2' ml='2'
+            size='md'
+            variant='solid'
+            colorScheme='teal'
+            _hover={{
+              background: "white",
+              color: "teal.500",
+            }}>
+            Shop now
+          </Button>
+        </Box>
+      </Center >
+    </>
+  )
+}
+
+export default Carousel

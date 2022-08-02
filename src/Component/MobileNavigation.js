@@ -1,6 +1,6 @@
-import { Flex, IconButton, Menu, MenuButton, MenuList } from "@chakra-ui/react"
-import { HamburgerIcon } from "@chakra-ui/icons"
-import NavigationListItems from "./NavigationListItems"
+import { Flex, IconButton, Menu, MenuButton, MenuList } from '@chakra-ui/react'
+import { HamburgerIcon } from '@chakra-ui/icons'
+import NavigationListItems from './NavigationListItems'
 const MobileNavigation = (props) => {
   const { setSelect } = props
 
@@ -8,14 +8,14 @@ const MobileNavigation = (props) => {
     <Menu>
       <MenuButton
         as={IconButton}
-        aria-label="Open mobile menu"
+        aria-label='Open mobile menu'
         icon={<HamburgerIcon />}
-        variant="outline"
-        ml="1"
+        variant='outline'
+        ml='1'
       >
       </MenuButton>
       <MenuList>
-        <Flex align="start" direction="column">
+        <Flex align='start' direction='column'>
           <NavigationListItems setSelect={setSelect} />
         </Flex>
       </MenuList>
