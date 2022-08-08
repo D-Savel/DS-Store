@@ -22,7 +22,7 @@ const NavigationListItems = (props) => {
       </MenuButton>
       <MenuList>
         <Link as={ReachLink} to={'/Products'}>
-          <MenuItem onClick={() => (setSelect('all'))}>All</MenuItem>
+          <MenuItem onClick={() => (setSelect('all categories'))}>All</MenuItem>
         </Link>
         <MenuDivider />
         <Link as={ReachLink} to={'/Products'}>
@@ -35,7 +35,7 @@ const NavigationListItems = (props) => {
           <MenuItem onClick={() => (setSelect('accessories'))}>Accessories</MenuItem>
         </Link>
       </MenuList>
-      <Link fontSize='18' as={ReachLink} to={'/Offer'} pl='5'>Offer</Link>
+      <Link fontSize='18' as={ReachLink} to={'/Offer'} pl='5'>Offers</Link>
       <Link fontSize='18' as={ReachLink} to={'/Contact'} pl='5'>Contact</Link>
     </Menu>
   )

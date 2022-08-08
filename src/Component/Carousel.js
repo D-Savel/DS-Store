@@ -24,22 +24,22 @@ const Carousel = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       index === carouselList.length - 1 ? setIndex(0) : setIndex((current => current + 1))
-    }, 4000);
+    }, 3000);
     return () => clearInterval(intervalId)
-  }, [index]);
+  }, [index, carouselList.length]);
 
   return (
     <>
       < Box px='1' textAlign='center' backgroundColor='teal.500' borderWidth='1px' borderBottomWidth='0px' borderTopRadius='md' py='0' >
         <Flex py='1' justify='space-between' align='center'>
-          <Button pt='1' size='xs' colorScheme='gray' variant='outline' onClick={previousClick}>
+          <Button pt='1' colorScheme='white' variant='solid' onClick={previousClick}>
             <ChevronLeftIcon w={4} h={4} />
             Previous
           </Button>
           <Heading as='h2' size='sm'>
             {carouselList[index].brand} - {carouselList[index].name}
           </Heading>
-          <Button pt='1' size='xs' colorScheme='gray' variant='outline' onClick={nextClick}>
+          <Button pt='1' colorScheme='white' variant='solid' onClick={nextClick}>
             Next
             <ChevronRightIcon w={4} h={4} />
           </Button>

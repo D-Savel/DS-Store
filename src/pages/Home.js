@@ -1,5 +1,4 @@
 import {
-  Badge,
   Box,
   Flex,
   useMediaQuery
@@ -17,13 +16,13 @@ const Home = (props) => {
   return (
     <>
       {isMobile ? (
-        <Box>
+        <Box px='1'>
           <Box w='100%' pt='2'>
             <Carousel />
           </Box>
         </Box>
       ) : (
-        <Flex>
+        <Flex pl='2'>
           <Box w='75%' pt='2'>
             <Carousel />
           </Box>

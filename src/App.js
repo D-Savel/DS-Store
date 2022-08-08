@@ -5,12 +5,11 @@ import Navigation from './Component/Navigation';
 import Home from './pages/Home'
 import Products from './pages/Products'
 import Contact from './pages/Contact'
-import Offer from './pages/Offer'
-import Cart from './pages/Cart'
+import Offer from './pages/Offers'
 
 function App() {
 
-  const [select, setSelect] = useState('all')
+  const [select, setSelect] = useState('all categories')
 
   return (
     <div className='App'>
@@ -22,7 +21,6 @@ function App() {
         <Route path='/Products' element={<Products select={select} />} />
         <Route path='/Contact' element={<Contact />} />
         <Route path='/Offer' element={<Offer />} />
-        <Route path='/Cart' element={<Cart />} />
       </Routes>
     </div>
   );

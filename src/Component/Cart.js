@@ -1,5 +1,3 @@
-
-
 const Cart = (props) => {
   return (
     <p>Cart</p>
