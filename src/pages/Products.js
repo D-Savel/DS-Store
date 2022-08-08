@@ -1,15 +1,47 @@
+import ProductCard from "../Component/ProductCard"
+import { products } from "../data/products"
+import {
+  Box,
+  Grid,
+  GridItem,
+  Heading,
+  List,
+} from '@chakra-ui/react'
 
-import React from 'react'
-
-function Products(props) {
-
+const Products = (props) => {
   const { select } = props
-  console.log('Products', select)
+
+  let productsList = []
+  if (select === 'all categories') {
+    productsList = products
+  } else {
+    productsList = products.filter(product => product.category === select)
+  }
+
   return (
-    <>
-      <p>Product</p>
-      <p> select = {select}</p>
-    </>
+    <Box px='1'>
+      <Heading as='h3' py='2'>{select.charAt(0).toUpperCase()}{select.slice(1)}</Heading>
+      <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)', xl: 'repeat(4, 1fr)' }} gap='3'>
+        {productsList.map((product) => {
+          return (
+            <List key={product.id}>
+              <GridItem>
+                <ProductCard
+                  name={product.name}
+                  brand={product.brand}
+                  category={product.category}
+                  imgUrl={product.imgUrl}
+                  nbProducts={product.nbProducts}
+                  price={product.price}
+                  stock={product.stock}
+                  offerPercent={product.offerPercent}
+                />
+              </GridItem>
+            </List>
+          )
+        })}
+      </Grid>
+    </Box>
   )
 }
 

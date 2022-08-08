@@ -7,7 +7,7 @@ import ASideMenu from '../Component/ASideMenu'
 
 
 
-function Offer(props) {
+function Offers(props) {
 
   const { setSelect } = props
   const [isMobile] = useMediaQuery('(max-width: 720px)')
@@ -15,7 +15,7 @@ function Offer(props) {
 
   return (
     <>
-      <p>Offer</p>
+      <p>Offers</p>
       {
         isMobile ? (
           <Box px='1'>
@@ -38,4 +38,4 @@ function Offer(props) {
   )
 }
 
-export default Offer
+export default Offers

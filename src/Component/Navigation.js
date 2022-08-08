@@ -29,9 +29,9 @@ const Navigation = (props) => {
 
 
   return (
-    <Box position='sticky' w='100%' top='0' zIndex='sticky' bg='gray.400'>
+    <Box position='sticky' w='100%' top='0' zIndex='sticky' bg='gray.200'>
       <Flex align='center' justify='space-between' direction='row'>
-        <Box as='nav' bg='gray.400' >
+        <Box as='nav' bg='gray.200' >
           {isMobile ? (
             <MobileNavigation setSelect={setSelect} />
           ) : (
