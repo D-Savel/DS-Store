@@ -10,14 +10,14 @@ import {
 
 const Products = (props) => {
   const { select } = props
-
   let productsList = []
+  let sortedProductsList = products.sort((a, b) => a.category.localeCompare(b.category))
   if (select === 'all categories') {
-    productsList = products
+    productsList = sortedProductsList
   } else {
     productsList = products.filter(product => product.category === select)
   }
-
+  console.log(sortedProductsList)
   return (
     <Box px='1'>
       <Heading as='h3' py='2'>{select.charAt(0).toUpperCase()}{select.slice(1)}</Heading>

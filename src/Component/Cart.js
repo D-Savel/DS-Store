@@ -1,7 +1,10 @@
+
+
 const Cart = (props) => {
   return (
-    <p>Cart</p>
+    <p>Cart details</p>
   )
+
 }
 
 export default Cart

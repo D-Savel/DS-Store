@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Link as ReachLink } from 'react-router-dom'
 import NavigationListItems from './NavigationListItems'
 import MobileNavigation from './MobileNavigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,13 +8,21 @@ import {
   Badge,
   Flex,
   HStack,
-  Link,
   StackDivider,
+  Tooltip,
   useMediaQuery,
   useColorMode,
-  VStack
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
 } from '@chakra-ui/react'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
+import Cart from './Cart'
 
 const Navigation = (props) => {
 
@@ -24,14 +31,15 @@ const Navigation = (props) => {
   const [amount, setAmount] = useState(115.45)
   const [itemsQuantity, setItemsQuantity] = useState(12)
 
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const [isMobile] = useMediaQuery('(max-width: 720px)')
   const { colorMode, toggleColorMode } = useColorMode()
 
 
   return (
-    <Box position='sticky' w='100%' top='0' zIndex='sticky' bg='gray.200'>
+    <Box position='sticky' w='100%' top='0' zIndex='sticky' bg='gray.300'>
       <Flex align='center' justify='space-between' direction='row'>
-        <Box as='nav' bg='gray.200' >
+        <Box as='nav' bg='gray.300' >
           {isMobile ? (
             <MobileNavigation setSelect={setSelect} />
           ) : (
@@ -40,29 +48,45 @@ const Navigation = (props) => {
         </Box>
         <Box>
           {colorMode === 'light' ?
-            <Button mr='2' px='0' colorScheme='blackAlpha' variant='solid' onClick={toggleColorMode} size='sm'>
+            <Button mr='2' p='2' colorScheme='blackAlpha' variant='solid' onClick={toggleColorMode} size='2xl'>
               <MoonIcon color='yellow' w='-' h='6' />
             </Button>
-            : <Button mr='2' px='0' colorScheme='yellow' variant='solid' onClick={toggleColorMode} size='sm'>
+            : <Button mr='2' p='2' colorScheme='yellow' variant='solid' onClick={toggleColorMode} size='2xl'>
               <SunIcon color='white' w='6' h='6' />
             </Button>}
           <Badge border='1px' borderColor='gray.200' borderLeftRadius='lg' color='white'>
             <Flex direction='row' >
               <HStack mr='2' align='center'>
-                <Link as={ReachLink} to={'/Cart'} >
-                  <Badge as='button' p='2' borderRadius='lg' variant='solid' colorScheme='gray'>
-                    <FontAwesomeIcon size='2xl' icon='fa-solid fa-cart-shopping' color='black' />
+                <Tooltip label='Open Cart' placement='bottom' bg='teal.500'>
+                  <Badge as='button' p='2' borderRadius='lg' variant='solid' colorScheme='gray' onClick={onOpen}>
+                    <FontAwesomeIcon size='2xl' icon='fa-solid fa-cart-shopping' color='white' />
                   </Badge>
-                </Link>
+                </Tooltip>
+                <Modal isOpen={isOpen} onClose={onClose}>
+                  <ModalOverlay />
+                  <ModalContent>
+                    <ModalHeader>Cart</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                      <Cart />
+                    </ModalBody>
+                    <ModalFooter>
+                      <Button colorScheme='red' mr={3} onClick={onClose}>
+                        Close X
+                      </Button>
+                      <Button colorScheme='teal'>Confirm Order</Button>
+                    </ModalFooter>
+                  </ModalContent>
+                </Modal>
               </HStack>
-              <VStack minW='40px' align='center' divider={<StackDivider borderColor='black' />}
+              <HStack minW='40px' align='center' divider={<StackDivider borderColor='black' />}
                 spacing={0.5}>
-                <HStack>
+                <HStack px='1'>
                   <span style={{ color: 'black' }}>Qty: </span>
-                  <Badge px='2' pt='1' borderRadius='lg' variant='solid' colorScheme='green'>{itemsQuantity}</Badge>
+                  <Badge fontSize='1.4em' px='2' py='1' borderRadius='lg' variant='solid' colorScheme='green'>{itemsQuantity}</Badge>
                 </HStack>
-                <Badge px='2' pt='1' borderRadius='lg' variant='solid' colorScheme='blue'>{amount} €</Badge>
-              </VStack>
+                <Badge mx='1' fontSize='1.4em' px='2' py='1' borderRadius='lg' variant='solid' colorScheme='blue'>{amount} €</Badge>
+              </HStack>
             </Flex>
           </Badge>
         </Box>

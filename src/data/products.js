@@ -158,11 +158,22 @@ export const products = [
     id: 30,
     category: 'computers',
     brand: 'Apple',
-    name: "Imac 24 ''",
-    imgUrl: 'https://c1.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2022/04/apple-imac-m1-frandroid-2022.png?resize=230,230',
+    name: 'Imac 24 ',
+    imgUrl: 'https://image.darty.com/informatique/macbook_imac_ipad/imac/apple_newimac24_16_8_256ar_s2104224809432A_101113608.jpg',
     price: 1399,
     offerPercent: 0,
     playInCarousel: true,
+    stock: 0
+  },
+  {
+    id: 31,
+    category: 'phones',
+    brand: 'Apple',
+    name: 'Essai',
+    imgUrl: '',
+    price: 1399,
+    offerPercent: 0,
+    playInCarousel: false,
     stock: 0
   }
 ]

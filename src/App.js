@@ -20,7 +20,7 @@ function App() {
         <Route path='/Home' element={<Home setSelect={setSelect} />} />
         <Route path='/Products' element={<Products select={select} />} />
         <Route path='/Contact' element={<Contact />} />
-        <Route path='/Offer' element={<Offer />} />
+        <Route path='/Offer' element={<Offer select={select} setSelect={setSelect} />} />
       </Routes>
     </div>
   );

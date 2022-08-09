@@ -31,26 +31,26 @@ const Carousel = () => {
   return (
     <>
       < Box px='1' textAlign='center' backgroundColor='teal.500' borderWidth='1px' borderBottomWidth='0px' borderTopRadius='md' py='0' >
-        <Flex py='1' justify='space-between' align='center'>
-          <Button pt='1' colorScheme='white' variant='solid' onClick={previousClick}>
+        <Flex justify='space-between' align='center'>
+          <Button colorScheme='white' variant='solid' onClick={previousClick}>
             <ChevronLeftIcon w={4} h={4} />
             Previous
           </Button>
-          <Heading as='h2' size='sm'>
+          <Heading color='white' as='h2' size='md'>
             {carouselList[index].brand} - {carouselList[index].name}
           </Heading>
-          <Button pt='1' colorScheme='white' variant='solid' onClick={nextClick}>
+          <Button colorScheme='white' variant='solid' onClick={nextClick}>
             Next
             <ChevronRightIcon w={4} h={4} />
           </Button>
         </Flex>
       </Box >
-      <Center position='relative' z-index='1' py='2' pb='10' borderWidth='1px' borderBottomRadius='md' overflow='hidden'>
+      <Center minH='500px' position='relative' z-index='1' py='2' pb='10' borderWidth='1px' borderBottomRadius='md' overflow='hidden'>
         <Image
           borderRadius='lg'
           src={carouselList[index].imgUrl} alt={carouselList[index].name} />
         <Box position='absolute' z-index='0' right='auto' left='1' bottom='1'>
-          {carouselList[index].isOffer && (
+          {carouselList[index].offerPercent > 0 && (
             <Text fontSize='20' color='red'>
               Special Offer : {carouselList[index].offerPercent}% off
               <ChevronRightIcon w={4} h={4} />
