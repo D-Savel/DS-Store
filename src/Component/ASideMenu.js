@@ -1,5 +1,5 @@
 import { categories } from '../data/categories'
-import CategoryCard from "./CategoryCard"
+import { CategoryCard } from "./CategoryCard"
 import { Link as ReachLink } from 'react-router-dom'
 import {
   Badge,
@@ -11,7 +11,7 @@ import {
   Tooltip
 } from '@chakra-ui/react'
 
-const ASideMenu = (props) => {
+export const ASideMenu = (props) => {
   const { setSelect } = props
 
   return (
@@ -43,5 +43,3 @@ const ASideMenu = (props) => {
     </Box >
   )
 }
-
-export default ASideMenu

@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react'
 import { ChevronDownIcon } from '@chakra-ui/icons'
 
-const NavigationListItems = (props) => {
+export const NavigationListItems = (props) => {
 
   const { setSelect } = props
 
@@ -40,5 +40,3 @@ const NavigationListItems = (props) => {
     </Menu>
   )
 }
-
-export default NavigationListItems

@@ -9,7 +9,7 @@ import {
   VStack
 } from '@chakra-ui/react'
 
-const CategoryCard = (props) => {
+export const CategoryCard = (props) => {
   const { category, imgUrl, nbProducts } = props
 
   return (
@@ -37,5 +37,3 @@ const CategoryCard = (props) => {
     </Box>
   )
 }
-
-export default CategoryCard

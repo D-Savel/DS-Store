@@ -13,7 +13,7 @@ import {
   Textarea
 } from '@chakra-ui/react'
 
-function Contact(props) {
+export const Contact = (props) => {
 
   const [form, setForm] = useState({
     firstName: '',

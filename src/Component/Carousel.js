@@ -11,7 +11,7 @@ import {
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
 import { useState, useEffect, } from 'react'
 
-const Carousel = () => {
+export const Carousel = () => {
   const [index, setIndex] = useState(0)
   const carouselList = products.filter((product) => product.playInCarousel === true)
   const nextClick = () => {
@@ -76,5 +76,3 @@ const Carousel = () => {
     </>
   )
 }
-
-export default Carousel

@@ -3,10 +3,10 @@ import {
   Flex,
   useMediaQuery
 } from '@chakra-ui/react'
-import Carousel from '../Component/Carousel'
-import ASideMenu from '../Component/ASideMenu'
+import { Carousel } from '../Component/Carousel'
+import { ASideMenu } from '../Component/ASideMenu'
 
-const Home = (props) => {
+export const Home = (props) => {
 
   const { setSelect } = props
   const [isMobile] = useMediaQuery('(max-width: 720px)')
@@ -35,5 +35,3 @@ const Home = (props) => {
     </>
   )
 }
-
-export default Home

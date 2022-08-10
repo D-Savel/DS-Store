@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const ProductCard = (props) => {
+export const ProductCard = (props) => {
   const { name, brand, category, imgUrl, price, stock, offerPercent } = props
   const offerPrice = (price * (100 - offerPercent) / 100)
 
@@ -124,5 +124,3 @@ const ProductCard = (props) => {
     </Box >
   )
 }
-
-export default ProductCard

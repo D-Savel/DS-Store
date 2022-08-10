@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import NavigationListItems from './NavigationListItems'
-import MobileNavigation from './MobileNavigation'
+import { NavigationListItems } from './NavigationListItems'
+import { MobileNavigation } from './MobileNavigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   Box,
@@ -22,9 +22,9 @@ import {
   ModalCloseButton,
 } from '@chakra-ui/react'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
-import Cart from './Cart'
+import { Cart } from './Cart'
 
-const Navigation = (props) => {
+export const Navigation = (props) => {
 
   const { setSelect } = props
 
@@ -96,5 +96,3 @@ const Navigation = (props) => {
 
   )
 }
-
-export default Navigation

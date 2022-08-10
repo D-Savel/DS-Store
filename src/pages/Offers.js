@@ -6,11 +6,11 @@ import {
   Heading,
   List
 } from '@chakra-ui/react'
-import ProductCard from '../Component/ProductCard'
+import { ProductCard } from '../Component/ProductCard'
 
 
 
-function Offers(props) {
+export const Offers = (props) => {
 
   const { select, setSelect } = props
   let productsList = []
@@ -52,5 +52,3 @@ function Offers(props) {
     </>
   )
 }
-
-export default Offers

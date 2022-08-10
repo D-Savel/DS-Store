@@ -1,4 +1,4 @@
-import ProductCard from "../Component/ProductCard"
+import { ProductCard } from "../Component/ProductCard"
 import { products } from "../data/products"
 import {
   Box,
@@ -8,7 +8,7 @@ import {
   List,
 } from '@chakra-ui/react'
 
-const Products = (props) => {
+export const Products = (props) => {
   const { select } = props
   let productsList = []
   let sortedProductsList = products.sort((a, b) => a.category.localeCompare(b.category))
@@ -44,5 +44,3 @@ const Products = (props) => {
     </Box>
   )
 }
-
-export default Products
