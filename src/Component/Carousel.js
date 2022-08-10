@@ -36,7 +36,7 @@ export const Carousel = () => {
             <ChevronLeftIcon w={4} h={4} />
             Previous
           </Button>
-          <Heading color='white' as='h2' size='md'>
+          <Heading px='1' color='white' as='h1' size='sm'>
             {carouselList[index].brand} - {carouselList[index].name}
           </Heading>
           <Button colorScheme='white' variant='solid' onClick={nextClick}>
@@ -45,8 +45,9 @@ export const Carousel = () => {
           </Button>
         </Flex>
       </Box >
-      <Center minH='500px' position='relative' z-index='1' py='2' pb='10' borderWidth='1px' borderBottomRadius='md' overflow='hidden'>
+      <Center position='relative' z-index='1' py='2' pb='10' borderWidth='1px' borderBottomRadius='md' overflow='hidden'>
         <Image
+          h='350px'
           borderRadius='lg'
           src={carouselList[index].imgUrl} alt={carouselList[index].name} />
         <Box position='absolute' z-index='0' right='auto' left='1' bottom='1'>

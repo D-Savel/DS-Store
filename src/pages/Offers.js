@@ -1,6 +1,7 @@
 import { products } from '../data/products'
 import {
   Box,
+  Center,
   Grid,
   GridItem,
   Heading,
@@ -21,11 +22,9 @@ export const Offers = (props) => {
     productsList = offerList.filter(product => product.category === select)
   }
 
-
-
   return (
     <>
-      <Heading py='2' bg='red' color='white'>SPECIALS OFFERS FOR YOU !!!</Heading>
+      <Heading w='100%' textAlign='center' mt='2' py='2' bg='red' color='white'>SPECIALS OFFERS FOR YOU !!!</Heading>
       <Box w='100%' pt='2'>
         <Heading as='h1' py='3'>{select.charAt(0).toUpperCase()}{select.slice(1)}</Heading>
         <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)', xl: 'repeat(4, 1fr)' }} gap='3'>

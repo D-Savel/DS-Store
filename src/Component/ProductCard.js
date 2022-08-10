@@ -20,12 +20,10 @@ export const ProductCard = (props) => {
   return (
     <Box px='2' py='2' shadow='md' borderWidth='1px' className='category - card'>
       < Grid
-        templateAreas={
-          `'category category' 'image productInfo' 'image price''stock cartButton'`
-        }
+        templateAreas={`'category category' 'image productInfo' 'image price''stock cartButton'`}
         gridTemplateRows={'50px 150px 100px 40px'}
         gridTemplateColumns={'1fr 1fr'} gap='1' >
-        <GridItem area='category'>
+        <GridItem area='category' textAlign='center'>
           <HStack justifyContent='center'>
             <Heading px='2' fontSize='1.6em'>{category.charAt(0).toUpperCase()}{category.slice(1, -1)}</Heading>
             {offerPercent > 0 && <Badge
@@ -58,14 +56,14 @@ export const ProductCard = (props) => {
               >
                 {brand.charAt(0).toUpperCase()}{brand.slice(1)}
               </Badge>
-              <Box width='95'>
+              <Box textAlign='center' width='95'>
                 <Text fontSize='1.4em'>{name}</Text>
               </Box>
             </Box>
           </GridItem>
         </Box>
         <Flex pb='3' justify='center' align='center'>
-          <GridItem area='price'>
+          <GridItem area='price' textAlign='center'>
             {offerPercent > 0 ?
               <>
                 <Text as='s' fontSize='1.1em' color='grey' px='2'>
@@ -96,7 +94,7 @@ export const ProductCard = (props) => {
             }
           </GridItem>
         </Flex>
-        <GridItem area='cartButton'>
+        <GridItem textAlign='center' area='cartButton'>
           <Tooltip label='Add to cart>' placement='bottom' bg='teal.500'>
             <Button
               borderRadius='md'

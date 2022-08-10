@@ -17,7 +17,7 @@ export const Products = (props) => {
   } else {
     productsList = products.filter(product => product.category === select)
   }
-  console.log(sortedProductsList)
+
   return (
     <Box px='1'>
       <Heading as='h3' py='2'>{select.charAt(0).toUpperCase()}{select.slice(1)}</Heading>
