@@ -1,7 +1,6 @@
 import { products } from '../data/products'
 import {
   Box,
-  Center,
   Grid,
   GridItem,
   Heading,

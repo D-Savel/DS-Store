@@ -138,7 +138,7 @@ export const products = [
     //imgUrl: '/assets/iphone-12-pro.png',
     imgUrl: 'https://image.darty.com/telephonie/telephone_mobile_seul/iphone/reborn_iph_11_64go_purple_t2111087031076A_095313757.jpg',
     price: 499,
-    offerPercent: 0,
+    offerPercent: 15,
     playInCarousel: true,
     stock: 25
   },
@@ -150,7 +150,7 @@ export const products = [
     //imgUrl: '/assets/iphone-12-pro.png',
     imgUrl: 'https://image.darty.com/telephonie/telephone_mobile_seul/iphone/reborn_iph_11_64go_blanc_t2110217024940A_143339164.jpg',
     price: 499,
-    offerPercent: 0,
+    offerPercent: 15,
     playInCarousel: true,
     stock: 25
   },

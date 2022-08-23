@@ -49,7 +49,7 @@ export const Contact = (props) => {
               <FormControl isRequired>
                 <InputGroup p='1'>
                   <FormLabel htmlFor='firstName'> </FormLabel>
-                  <InputLeftAddon minWidth='100' children='Firstname' color='teal' />
+                  <InputLeftAddon minW='90px' children='Firstname' color='teal' />
                   <Input
                     required='required'
                     id='firstName'
@@ -66,7 +66,7 @@ export const Contact = (props) => {
             <FormControl isRequired>
               <InputGroup p='1'>
                 <FormLabel htmlFor='lastName'> </FormLabel>
-                <InputLeftAddon minWidth='100' children='Lastname' color='teal' />
+                <InputLeftAddon minW='90px' children='Lastname' color='teal' />
                 <Input
                   required='required'
                   id='lastName'
@@ -82,7 +82,8 @@ export const Contact = (props) => {
             <FormControl isRequired>
               <InputGroup p='1'>
                 <FormLabel htmlFor='email'> </FormLabel>
-                <InputLeftAddon minWidth='100' children='Email' color='teal' />                <Input
+                <InputLeftAddon minW='90px' children='Email' color='teal' />
+                <Input
                   required='required'
                   id='email'
                   name='email'
@@ -97,6 +98,7 @@ export const Contact = (props) => {
             <FormControl isRequired>
               <FormLabel pt='3' my='0' htmlFor='textValue'>Message</FormLabel>
               <Textarea
+                minH='200px'
                 required='required'
                 id='textValue'
                 name='textValue'

@@ -18,10 +18,10 @@ export const ProductCard = (props) => {
   const offerPrice = (price * (100 - offerPercent) / 100)
 
   return (
-    <Box px='2' py='2' shadow='md' borderWidth='1px' className='category - card'>
+    <Box px='2' py='2' shadow='md' borderWidth='1px' className='category-card'>
       < Grid
         templateAreas={`'category category' 'image productInfo' 'image price''stock cartButton'`}
-        gridTemplateRows={'50px 150px 100px 40px'}
+        gridTemplateRows={'1fr 3fr 2fr 1fr'}
         gridTemplateColumns={'1fr 1fr'} gap='1' >
         <GridItem area='category' textAlign='center'>
           <HStack justifyContent='center'>
@@ -37,7 +37,7 @@ export const ProductCard = (props) => {
           </HStack>
         </GridItem>
         <GridItem area={'image'}>
-          <Box height='100%' display="flex" alignItems="center" justifyContent="center">
+          <Box h='250px' display="flex" alignItems="center" justifyContent="center">
             <Image
               borderRadius='lg'
               src={imgUrl} alt={category}

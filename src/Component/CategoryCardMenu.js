@@ -2,8 +2,6 @@ import { categories } from '../data/categories'
 import { CategoryCard } from "./CategoryCard"
 import { Link as ReachLink } from 'react-router-dom'
 import {
-  Badge,
-  Box,
   List,
   Link,
   Menu,
@@ -11,18 +9,15 @@ import {
   Tooltip
 } from '@chakra-ui/react'
 
-export const ASideMenu = (props) => {
+export const CategoryCardMenu = (props) => {
   const { setSelect } = props
 
   return (
-    <Box sx={{ overflow: "scroll", height: "100vh" }}>
-      <Badge w='90%' borderRadius='md' fontSize='1em' size='lg' py='1' variant='solid' colorScheme='teal'>
-        Products
-      </Badge>
+    <>
       {categories.map((category) => {
         return (
           <List key={category.id}>
-            < Menu >
+            < Menu gap='1'>
               <Tooltip label='Click for shopping >' placement='left' bg='teal.500'>
                 <Link
                   as={ReachLink}
@@ -40,6 +35,6 @@ export const ASideMenu = (props) => {
           </List>
         )
       })}
-    </Box >
+    </>
   )
 }
