@@ -59,11 +59,11 @@ export const Home = (props) => {
         </Box>
       ) : (
         <Flex pr='1'>
-          <Box display='flex' flexDirection='column' w='75%' pt='2'>
+          <Box display='flex' flexDirection='column' w='75%' pt='2' >
             <Carousel />
             <OfferItems />
           </Box>
-          <Box w='25%' pt='2' align='center'>
+          <Box w='25%' pt='2' align='center' sx={{ overflow: "auto", height: "130vh" }}>
             <Box>
               <Badge w='90%'
                 borderRadius='md'
