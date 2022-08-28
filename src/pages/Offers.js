@@ -12,7 +12,7 @@ import { ProductCard } from '../Component/ProductCard'
 
 export const Offers = (props) => {
 
-  const { select, setSelect } = props
+  const { select } = props
   let productsList = []
   let offerList = products.filter(product => product.offerPercent > 0)
   if (select === 'all categories') {
