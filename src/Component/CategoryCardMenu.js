@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux'
+import { setSelect } from '../redux/reducers/selectSlice'
 import { categories } from '../data/categories'
 import { CategoryCard } from "./CategoryCard"
 import { Link as ReachLink } from 'react-router-dom'
@@ -10,7 +12,7 @@ import {
 } from '@chakra-ui/react'
 
 export const CategoryCardMenu = (props) => {
-  const { setSelect } = props
+  const dispatch = useDispatch()
 
   return (
     <>
@@ -26,7 +28,7 @@ export const CategoryCardMenu = (props) => {
                     background: "white",
                     color: "teal.500",
                   }}>
-                  <MenuItem onClick={() => (setSelect(category.category))}>
+                  <MenuItem onClick={() => (dispatch(setSelect(category.category)))}>
                     <CategoryCard category={category.category} imgUrl={category.imgUrl} nbProducts={category.nbProducts} />
                   </MenuItem>
                 </Link>

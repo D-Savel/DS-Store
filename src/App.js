@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import { Navigation } from './Component/Navigation';
@@ -10,17 +9,15 @@ import { Footer } from './Component/Footer'
 
 const App = () => {
 
-  const [select, setSelect] = useState('all categories')
-
   return (
     <>
-      <Navigation setSelect={setSelect} />
+      <Navigation />
       <Routes>
-        <Route path='/' element={<Home setSelect={setSelect} />} />
-        <Route path='/Home' element={<Home setSelect={setSelect} />} />
-        <Route path='/Products' element={<Products select={select} />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/Home' element={<Home />} />
+        <Route path='/Products' element={<Products />} />
         <Route path='/Contact' element={<Contact />} />
-        <Route path='/Offer' element={<Offers select={select} setSelect={setSelect} />} />
+        <Route path='/Offer' element={<Offers />} />
       </Routes>
       <Footer />
     </>

@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux'
 import { products } from '../data/products'
 import {
   Box,
@@ -12,7 +13,8 @@ import { ProductCard } from '../Component/ProductCard'
 
 export const Offers = (props) => {
 
-  const { select } = props
+  const select = useSelector(state => state.select.value)
+
   let productsList = []
   let offerList = products.filter(product => product.offerPercent > 0)
   if (select === 'all categories') {

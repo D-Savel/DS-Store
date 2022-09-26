@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux'
 import { ProductCard } from "../Component/ProductCard"
 import { products } from "../data/products"
 import {
@@ -9,7 +10,8 @@ import {
 } from '@chakra-ui/react'
 
 export const Products = (props) => {
-  const { select } = props
+  const select = useSelector(state => state.select.value)
+
   let productsList = []
   let sortedProductsList = products.sort((a, b) => a.category.localeCompare(b.category))
   if (select === 'all categories') {

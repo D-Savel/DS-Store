@@ -10,10 +10,7 @@ import { OfferItems } from '../Component/OfferItems'
 
 export const Home = (props) => {
 
-  const { setSelect } = props
   const [isMobile] = useMediaQuery('(max-width: 720px)')
-
-
 
   return (
     <>
@@ -36,7 +33,7 @@ export const Home = (props) => {
                 }}>
                 Products
               </Badge>
-              <CategoryCardMenu setSelect={setSelect} />
+              <CategoryCardMenu />
             </Box>
           </Box>
           <Box display='flex' flexWrap='nowrap' sx={{ overflow: "auto" }}>
@@ -75,7 +72,7 @@ export const Home = (props) => {
               >
                 Products
               </Badge>
-              <CategoryCardMenu setSelect={setSelect} />
+              <CategoryCardMenu />
             </Box>
           </Box>
         </Flex >
