@@ -13,7 +13,7 @@ import { ProductCard } from '../Component/ProductCard'
 
 export const Offers = (props) => {
 
-  const select = useSelector(state => state.select.value)
+  const select = useSelector(state => state.selectCategory.value)
 
   let productsList = []
   let offerList = products.filter(product => product.offerPercent > 0)

@@ -2,7 +2,8 @@ import { products } from '../data/products'
 import { ProductCard } from "./ProductCard"
 import {
   Box,
-  List
+  List,
+  ListItem
 } from '@chakra-ui/react'
 
 export const OfferItems = (props) => {
@@ -15,18 +16,21 @@ export const OfferItems = (props) => {
         {offerProductsList.map((product) => {
           return (
             <List key={product.id}>
-              <Box py='1' pr='2' minW='230px'>
-                <ProductCard
-                  name={product.name}
-                  brand={product.brand}
-                  category={product.category}
-                  imgUrl={product.imgUrl}
-                  nbProducts={product.nbProducts}
-                  price={product.price}
-                  stock={product.stock}
-                  offerPercent={product.offerPercent}
-                />
-              </Box>
+              <ListItem>
+                <Box py='1' pr='2' minW='270px'>
+                  <ProductCard
+                    id={product.id}
+                    name={product.name}
+                    brand={product.brand}
+                    category={product.category}
+                    imgUrl={product.imgUrl}
+                    nbProducts={product.nbProducts}
+                    price={product.price}
+                    stock={product.stock}
+                    offerPercent={product.offerPercent}
+                  />
+                </Box>
+              </ListItem>
             </List>
           )
         })}

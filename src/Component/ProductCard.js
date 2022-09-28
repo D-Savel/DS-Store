@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../redux/reducers/cartSlice'
 import {
   Badge,
   Button,
@@ -14,8 +16,11 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const ProductCard = (props) => {
-  const { name, brand, category, imgUrl, price, stock, offerPercent } = props
+  const { id, name, brand, category, imgUrl, price, stock, offerPercent } = props
   const offerPrice = (price * (100 - offerPercent) / 100)
+  const dispatch = useDispatch()
+
+  const handleAddToCart = () => dispatch(addToCart({ id: id, name: name, brand: brand, imgUrl: imgUrl, price: price, offerPercent: offerPercent, qty: 1 }))
 
   return (
     <Box px='2' py='2' shadow='md' borderWidth='1px' className='category-card'>
@@ -100,7 +105,9 @@ export const ProductCard = (props) => {
               borderRadius='md'
               size='md'
               variant='outline'
-              colorScheme='teal'>
+              colorScheme='teal'
+              isDisabled={stock > 0 ? false : true}
+              onClick={handleAddToCart} >
               <FontAwesomeIcon size='2xl' icon='fa-solid fa-cart-shopping' color='teal' />
             </Button>
           </Tooltip>
