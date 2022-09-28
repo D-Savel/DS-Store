@@ -20,7 +20,7 @@ export const products = [
     price: 849,
     offerPercent: 25,
     playInCarousel: true,
-    stock: 57
+    stock: 0
   },
   {
     id: 3,
@@ -165,15 +165,4 @@ export const products = [
     playInCarousel: true,
     stock: 0
   },
-  {
-    id: 31,
-    category: 'phones',
-    brand: 'Apple',
-    name: 'Essai',
-    imgUrl: '',
-    price: 1399,
-    offerPercent: 0,
-    playInCarousel: false,
-    stock: 0
-  }
 ]

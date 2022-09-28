@@ -1,6 +1,6 @@
 import { Link as ReachLink } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { setSelect } from '../redux/reducers/selectSlice'
+import { setSelectCategory } from '../redux/reducers/selectCategorySlice'
 import {
   Button,
   Link,
@@ -24,17 +24,17 @@ export const NavigationListItems = (props) => {
       </MenuButton>
       <MenuList>
         <Link as={ReachLink} to={'/Products'}>
-          <MenuItem onClick={() => (dispatch(setSelect('all categories')))}>All</MenuItem>
+          <MenuItem onClick={() => (dispatch(setSelectCategory('all categories')))}>All</MenuItem>
         </Link>
         <MenuDivider />
         <Link as={ReachLink} to={'/Products'}>
-          <MenuItem onClick={() => (dispatch(setSelect('phones')))}>Phones</MenuItem>
+          <MenuItem onClick={() => (dispatch(setSelectCategory('phones')))}>Phones</MenuItem>
         </Link>
         <Link as={ReachLink} to={'/Products'} >
-          <MenuItem onClick={() => (dispatch(setSelect('computers')))}>Computers</MenuItem>
+          <MenuItem onClick={() => (dispatch(setSelectCategory('computers')))}>Computers</MenuItem>
         </Link>
         <Link as={ReachLink} to={'/Products'}>
-          <MenuItem onClick={() => (dispatch(setSelect('accessories')))}>Accessories</MenuItem>
+          <MenuItem onClick={() => (dispatch(setSelectCategory('accessories')))}>Accessories</MenuItem>
         </Link>
       </MenuList>
       <Link fontSize='18' as={ReachLink} to={'/Offer'} pl='5'>Offers</Link>

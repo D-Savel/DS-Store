@@ -1,5 +1,5 @@
-/* eslint-disable no-unused-vars */
-import { useState } from 'react'
+
+import { useSelector } from 'react-redux'
 import { NavigationListItems } from './NavigationListItems'
 import { MobileNavigation } from './MobileNavigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,7 +9,6 @@ import {
   Badge,
   Flex,
   HStack,
-  StackDivider,
   Tooltip,
   useMediaQuery,
   useColorMode,
@@ -27,40 +26,32 @@ import { Cart } from './Cart'
 
 export const Navigation = (props) => {
 
-  const { setSelect } = props
-
-  const [amount, setAmount] = useState(115.45)
-  const [itemsQuantity, setItemsQuantity] = useState(12)
-
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [isMobile] = useMediaQuery('(max-width: 720px)')
   const { colorMode, toggleColorMode } = useColorMode()
 
+  const { cartAmount, itemsQty } = useSelector(state => state.cart)
 
   return (
     <Box position='sticky' w='100%' top='0' zIndex='sticky' bg='gray.300'>
       <Flex align='center' justify='space-between' direction='row'>
         <Box as='nav' bg='gray.300' >
           {isMobile ? (
-            <MobileNavigation setSelect={setSelect} />
+            <MobileNavigation />
           ) : (
-            <NavigationListItems setSelect={setSelect} />
+            <NavigationListItems />
           )}
         </Box>
         <Box>
-          {colorMode === 'light' ?
-            <Button mr='2' p='2' colorScheme='blackAlpha' variant='solid' onClick={toggleColorMode} size='2xl'>
-              <MoonIcon color='yellow' w='-' h='6' />
-            </Button>
-            : <Button mr='2' p='2' colorScheme='yellow' variant='solid' onClick={toggleColorMode} size='2xl'>
-              <SunIcon color='white' w='6' h='6' />
-            </Button>}
-          <Badge border='1px' borderColor='gray.200' borderLeftRadius='lg' color='white'>
+          <Button mr='2' py='1' px='2' colorScheme='blackAlpha' variant='solid' onClick={toggleColorMode} size='2xl'>
+            {colorMode === 'light' ? <MoonIcon color='yellow' w='-' h='6' /> : <SunIcon color='yellow' w='6' h='6' />}
+          </Button>
+          <Badge position='relative' z-index='1' border='1px' borderColor='gray.200' borderLeftRadius='lg' color='white'>
             <Flex direction='row' >
               <HStack mr='2' align='center'>
                 <Tooltip label='Open Cart' placement='bottom' bg='teal.500'>
-                  <Badge as='button' p='2' borderRadius='lg' variant='solid' colorScheme='gray' onClick={onOpen}>
-                    <FontAwesomeIcon size='2xl' icon='fa-solid fa-cart-shopping' color='white' />
+                  <Badge as='button' p='2' borderRadius='xl' variant='solid' colorScheme='gray' onClick={onOpen}>
+                    <FontAwesomeIcon size='xl' icon='icon="fa-duotone fa-cart-shopping' />
                   </Badge>
                 </Tooltip>
                 <Modal isOpen={isOpen} onClose={onClose}>
@@ -80,13 +71,12 @@ export const Navigation = (props) => {
                   </ModalContent>
                 </Modal>
               </HStack>
-              <HStack minW='40px' align='center' divider={<StackDivider borderColor='black' />}
-                spacing={0.5}>
-                <HStack px='1'>
-                  <span style={{ color: 'black' }}>Qty: </span>
-                  <Badge fontSize='1.4em' px='2' py='1' borderRadius='lg' variant='solid' colorScheme='green'>{itemsQuantity}</Badge>
-                </HStack>
-                <Badge mx='1' fontSize='1.4em' px='2' py='1' borderRadius='lg' variant='solid' colorScheme='blue'>{amount} €</Badge>
+              <HStack minW='40px' align='center'
+                spacing={4}>
+
+                <Badge position='absolute' z-index='1' left='8' bottom='-1' pt='1' px='2' fontSize='1.1em' borderRadius='xl' variant='solid' colorScheme='green'>{itemsQty}</Badge>
+
+                <Badge mx='1' fontSize='1.4em' px='2' py='1' borderRadius='lg' variant='solid' colorScheme='blue'>{cartAmount.toFixed(2)} €</Badge>
               </HStack>
             </Flex>
           </Badge>
