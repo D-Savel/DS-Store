@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux'
+import { CartItem } from './CartItem'
 import { deleteCart } from '../redux/reducers/cartSlice'
 import {
   Button,
   List,
-  ListItem
+  StackDivider,
+  VStack
 } from '@chakra-ui/react'
 
 export const Cart = (props) => {
@@ -11,23 +13,38 @@ export const Cart = (props) => {
   const dispatch = useDispatch()
   const handleClearLocalStorage = () => dispatch(deleteCart())
   const cart = useSelector(state => state.cart.cartItems)
+  const itemQty = useSelector(state => state.cart.itemsQty)
+  const cartAmount = useSelector(state => state.cart.cartAmount)
   console.log('cartItems State', cart)
 
   return (
     <>
-      <p>Cart details</p>
       {cart.length > 0 ?
-        <div>
+        <VStack
+          divider={<StackDivider borderColor='gray.200' />}
+          spacing='1'
+          align='stretch'
+        >
           {cart.map((item) => {
             return (
               <List key={item.id}>
-                <ListItem >
-                  {item.brand} - {item.name} {item.qty}
-                </ListItem>
+                <CartItem
+                  id={item.id}
+                  name={item.name}
+                  brand={item.brand}
+                  category={item.category}
+                  imgUrl={item.imgUrl}
+                  nbProducts={item.nbProducts}
+                  price={item.price}
+                  stock={item.stock}
+                  offerPercent={item.offerPercent}
+                  qty={item.qty}
+                  cartAmount={cartAmount}
+                />
               </List>
             )
           })}
-        </div>
+        </VStack>
         :
         <p>No item in cart</p>
       }

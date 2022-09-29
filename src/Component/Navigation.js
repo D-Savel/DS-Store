@@ -54,7 +54,7 @@ export const Navigation = (props) => {
                     <FontAwesomeIcon size='xl' icon='icon="fa-duotone fa-cart-shopping' color='white' />
                   </Badge>
                 </Tooltip>
-                <Modal isOpen={isOpen} onClose={onClose}>
+                <Modal isOpen={isOpen} onClose={onClose} size='3xl'>
                   <ModalOverlay />
                   <ModalContent>
                     <ModalHeader>Cart</ModalHeader>
@@ -73,9 +73,7 @@ export const Navigation = (props) => {
               </HStack>
               <HStack minW='40px' align='center'
                 spacing={4}>
-
                 <Badge position='absolute' z-index='1' left='8' bottom='-1' pt='1' px='2' fontSize='1.1em' borderRadius='xl' variant='solid' colorScheme='green'>{itemsQty}</Badge>
-
                 <Badge mx='1' fontSize='1.4em' px='2' py='1' borderRadius='lg' variant='solid' colorScheme='blue'>{cartAmount.toFixed(2)} €</Badge>
               </HStack>
             </Flex>
