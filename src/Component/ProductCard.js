@@ -11,7 +11,8 @@ import {
   HStack,
   Image,
   Text,
-  Tooltip
+  Tooltip,
+  useMediaQuery
 } from '@chakra-ui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -19,6 +20,7 @@ export const ProductCard = (props) => {
   const { id, name, brand, category, imgUrl, price, stock, offerPercent } = props
   const offerPrice = (price * (100 - offerPercent) / 100)
   const dispatch = useDispatch()
+  const [isMobile] = useMediaQuery('(max-width: 720px)')
 
   const handleAddToCart = () => dispatch(addToCart({ id: id, name: name, brand: brand, imgUrl: imgUrl, price: price, offerPercent: offerPercent, qty: 1 }))
 
@@ -100,7 +102,7 @@ export const ProductCard = (props) => {
           </GridItem>
         </Flex>
         <GridItem textAlign='center' area='cartButton'>
-          <Tooltip label='Add to cart>' placement='bottom' bg='teal.500'>
+          <Tooltip isDisabled={isMobile ? true : false} label='Add to cart>' placement='bottom' bg='teal.500'>
             <Button
               borderRadius='md'
               size='md'

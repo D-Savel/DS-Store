@@ -49,9 +49,9 @@ export const Navigation = (props) => {
           <Badge position='relative' z-index='1' border='1px' borderColor='gray.200' borderLeftRadius='lg' color='white'>
             <Flex direction='row' >
               <HStack mr='2' align='center'>
-                <Tooltip label='Open Cart' placement='bottom' bg='teal.500'>
+                <Tooltip isDisabled={isMobile ? true : false} label='Open Cart' placement='bottom' bg='teal.500'>
                   <Badge as='button' p='2' borderRadius='xl' variant='solid' colorScheme='gray' onClick={onOpen}>
-                    <FontAwesomeIcon size='xl' icon='icon="fa-duotone fa-cart-shopping' />
+                    <FontAwesomeIcon size='xl' icon='icon="fa-duotone fa-cart-shopping' color='white' />
                   </Badge>
                 </Tooltip>
                 <Modal isOpen={isOpen} onClose={onClose}>

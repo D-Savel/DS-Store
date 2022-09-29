@@ -7,19 +7,21 @@ import {
   Link,
   Menu,
   MenuItem,
-  Tooltip
+  Tooltip,
+  useMediaQuery
 } from '@chakra-ui/react'
 
 
 export const CategoryCardMenu = (props) => {
   const dispatch = useDispatch()
+  const [isMobile] = useMediaQuery('(max-width: 720px)')
 
   return (
     <>
       {categories.map((category) => {
         return (
           < Menu key={category.id} gap='1'>
-            <Tooltip label='Click for shopping >' placement='left' bg='teal.500'>
+            <Tooltip isDisabled={isMobile ? true : false} label='Click for shopping >' placement='left' bg='teal.500'>
               <Link
                 as={ReachLink}
                 to={'/Products'}
