@@ -1,8 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { CartItem } from './CartItem'
-import { deleteCart } from '../redux/reducers/cartSlice'
+
 import {
-  Button,
   List,
   StackDivider,
   VStack
@@ -10,12 +9,10 @@ import {
 
 export const Cart = (props) => {
 
-  const dispatch = useDispatch()
-  const handleClearLocalStorage = () => dispatch(deleteCart())
   const cart = useSelector(state => state.cart.cartItems)
-  const itemQty = useSelector(state => state.cart.itemsQty)
   const cartAmount = useSelector(state => state.cart.cartAmount)
   console.log('cartItems State', cart)
+
 
   return (
     <>
@@ -48,8 +45,6 @@ export const Cart = (props) => {
         :
         <p>No item in cart</p>
       }
-      <Button mr='2' p='2' colorScheme='red' variant='solid' onClick={handleClearLocalStorage} size='2xl'>X
-      </Button>
     </>
 
   )

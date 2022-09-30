@@ -32,7 +32,7 @@ export const products = [
     price: 849,
     offerPercent: 25,
     playInCarousel: true,
-    stock: 57
+    stock: 5
   },
   {
     id: 4,

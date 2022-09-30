@@ -48,6 +48,7 @@ export const cartSlice = createSlice({
   },
   reducers: {
     addToCart: (state, action) => {
+      console.log('id / AddToCArt', action.payload.id)
       if (!getCart()) {
         state.cartItems.push(action.payload)
         saveLocalStorage('cart', state.cartItems)
@@ -68,38 +69,36 @@ export const cartSlice = createSlice({
 
     },
 
-    setCart: (state, action) => {
-      if (getCart()) {
-        state.cartItems = [...getCart]
-      }
-      return state
-    },
-
-    editCart: (state, action) => {
-      state.cartItems = [...getCart()]
+    updateItemQty: (state, action) => {
       let findIndex = state.cartItems.findIndex(p => p.id === action.payload.id)
-      if (findIndex !== -1) {
-        state.cartItems[findIndex].qty = parseInt(action.payload.qty)
-      }
+      state.cartItems[findIndex].qty = parseInt(action.payload.qty)
+      saveLocalStorage('cart', state.cartItems)
+      state.itemsQty = setCartQty(state.cartItems)
+      state.cartAmount = setCartAmount(state.cartItems)
       return state
     },
 
-    delCartItems: (state, action) => {
+    delCartItem: (state, action) => {
+      console.log('id / delCartItem', action.payload.id)
       state.cartItems = getCart().filter(item => item.id !== action.payload.id)
+      saveLocalStorage('cart', state.cartItems)
+      state.itemsQty = setCartQty(state.cartItems)
+      state.cartAmount = setCartAmount(state.cartItems)
       return state
     },
 
-    deleteCart: (state, action) => {
+    delCart: (state, action) => {
       state.cartItems = []
       state.cartAmount = 0
       state.itemsQty = 0
       saveLocalStorage('cart', state.cartItems)
+      state.cartAmount = setCartAmount(state.cartItems)
       return state
     },
 
   }
 })
 
-export const { addToCart, setCart, editCart, delCartItem, deleteCart } = cartSlice.actions
+export const { addToCart, updateItemQty, delCartItem, delCart } = cartSlice.actions
 
 export default cartSlice.reducer

@@ -20,13 +20,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export const ProductCard = (props) => {
   const { id, name, brand, category, imgUrl, price, stock, offerPercent } = props
   const dispatch = useDispatch()
-  const [isMobile] = useMediaQuery('(max-width: 720px)')
+  const [isMobile] = useMediaQuery('(max-width: 1080px)')
 
-  const handleAddToCart = () => dispatch(addToCart({ id: id, category: category, name: name, brand: brand, imgUrl: imgUrl, price: price, offerPercent: offerPercent, qty: 1 }))
+  const handleAddToCart = () => dispatch(addToCart({ id: id, category: category, name: name, brand: brand, imgUrl: imgUrl, price: price, offerPercent: offerPercent, stock: stock, qty: 1 }))
 
   return (
     <Box px='2' py='2' shadow='md' borderWidth='1px' className='category-card'>
       < Grid
+        h='300px'
         templateAreas={`'category category' 'image productInfo' 'image price''stock cartButton'`}
         gridTemplateRows={'1fr 3fr 2fr 1fr'}
         gridTemplateColumns={'1fr 1fr'} gap='1' >
@@ -54,28 +55,25 @@ export const ProductCard = (props) => {
           </Box>
         </GridItem>
         <Box width='100%' display='flex' flexDirection='column' justifyContent='start' alignItems='center'>
-          <GridItem area='productInfo'>
-            <Box pt='3' height='100%' display='flex' flexDirection='column' justifyContent='start' alignItems='center'>
+          <GridItem pt='3' area='productInfo'>
+            <Box height='100%' display='flex' flexDirection='column' justifyContent='start' alignItems='center'>
               <Badge
-                mb='3'
-                px='6'
+                px='2'
                 fontSize='1em'
                 borderRadius='md'
                 variant='solid'
               >
                 {brand.charAt(0).toUpperCase()}{brand.slice(1)}
               </Badge>
-              <Box textAlign='center' width='95'>
+              <Box pt='2' textAlign='center' width='95'>
                 <Text fontSize='1.3em'>{name}</Text>
               </Box>
             </Box>
           </GridItem>
         </Box>
-        <Flex pb='3' justify='center' align='center'>
-          <GridItem area='price' textAlign='center'>
-            <PriceTag offerPercent={offerPercent} price={price} />
-          </GridItem>
-        </Flex>
+        <GridItem pt='3' area='price' textAlign='center' justifyContent='end'>
+          <PriceTag offerPercent={offerPercent} price={price} />
+        </GridItem>
         <GridItem textAlign='center' area='cartButton'>
           <Tooltip isDisabled={isMobile ? true : false} label='Add to cart>' placement='bottom' bg='teal.500'>
             <Button

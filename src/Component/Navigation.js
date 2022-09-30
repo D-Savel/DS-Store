@@ -1,5 +1,6 @@
 
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { delCart } from '../redux/reducers/cartSlice'
 import { NavigationListItems } from './NavigationListItems'
 import { MobileNavigation } from './MobileNavigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -27,9 +28,11 @@ import { Cart } from './Cart'
 export const Navigation = (props) => {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [isMobile] = useMediaQuery('(max-width: 720px)')
+  const [isMobile] = useMediaQuery('(max-width: 1080px)')
   const { colorMode, toggleColorMode } = useColorMode()
 
+  const dispatch = useDispatch()
+  const handleClearCartLocalStorage = () => dispatch(delCart())
   const { cartAmount, itemsQty } = useSelector(state => state.cart)
 
   return (
@@ -56,25 +59,55 @@ export const Navigation = (props) => {
                 </Tooltip>
                 <Modal isOpen={isOpen} onClose={onClose} size='3xl'>
                   <ModalOverlay />
-                  <ModalContent>
+                  <ModalContent m='0' p='0'>
                     <ModalHeader>Cart</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
                       <Cart />
                     </ModalBody>
                     <ModalFooter>
-                      <Button colorScheme='red' mr={3} onClick={onClose}>
-                        Close X
-                      </Button>
-                      <Button colorScheme='teal'>Confirm Order</Button>
+                      <Box display='flex' justifyContent='space-between'>
+                        <Button
+                          mr='2'
+                          p='2'
+                          colorScheme='red'
+                          onClick={handleClearCartLocalStorage}
+                          variant='solid'
+                          size='2xl'>
+                          Del cart  x
+                        </Button>
+                        <Box>
+                          <Button colorScheme='red' mr={3} onClick={onClose}>Close  x</Button>
+                          <Button colorScheme='teal'>Confirm Order</Button>
+                        </Box>
+                      </Box>
                     </ModalFooter>
                   </ModalContent>
                 </Modal>
               </HStack>
               <HStack minW='40px' align='center'
                 spacing={4}>
-                <Badge position='absolute' z-index='1' left='8' bottom='-1' pt='1' px='2' fontSize='1.1em' borderRadius='xl' variant='solid' colorScheme='green'>{itemsQty}</Badge>
-                <Badge mx='1' fontSize='1.4em' px='2' py='1' borderRadius='lg' variant='solid' colorScheme='blue'>{cartAmount.toFixed(2)} €</Badge>
+                <Badge
+                  position='absolute'
+                  z-index='1'
+                  left='8'
+                  bottom='-1'
+                  pt='1' px='2'
+                  fontSize='1.1em'
+                  borderRadius='xl'
+                  variant='solid'
+                  colorScheme='green'>
+                  {itemsQty}
+                </Badge>
+                <Badge
+                  mx='1'
+                  fontSize='1.4em'
+                  px='2' py='1'
+                  borderRadius='lg'
+                  variant='solid'
+                  colorScheme='blue'>
+                  {cartAmount.toFixed(2)} €
+                </Badge>
               </HStack>
             </Flex>
           </Badge>
