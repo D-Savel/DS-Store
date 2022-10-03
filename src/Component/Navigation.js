@@ -1,8 +1,7 @@
-
-import { useSelector, useDispatch } from 'react-redux'
-import { delCart } from '../redux/reducers/cartSlice'
+import { useSelector } from 'react-redux'
 import { NavigationListItems } from './NavigationListItems'
 import { MobileNavigation } from './MobileNavigation'
+import { CartModal } from './CartModal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   Box,
@@ -14,25 +13,15 @@ import {
   useMediaQuery,
   useColorMode,
   useDisclosure,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
 } from '@chakra-ui/react'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
-import { Cart } from './Cart'
 
 export const Navigation = (props) => {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [isMobile] = useMediaQuery('(max-width: 1080px)')
+  const [isMobile] = useMediaQuery('(max-width: 1070px)')
   const { colorMode, toggleColorMode } = useColorMode()
 
-  const dispatch = useDispatch()
-  const handleClearCartLocalStorage = () => dispatch(delCart())
   const { cartAmount, itemsQty } = useSelector(state => state.cart)
 
   return (
@@ -57,33 +46,7 @@ export const Navigation = (props) => {
                     <FontAwesomeIcon size='xl' icon='icon="fa-duotone fa-cart-shopping' color='white' />
                   </Badge>
                 </Tooltip>
-                <Modal isOpen={isOpen} onClose={onClose} size='3xl'>
-                  <ModalOverlay />
-                  <ModalContent m='0' p='0'>
-                    <ModalHeader>Cart</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody>
-                      <Cart />
-                    </ModalBody>
-                    <ModalFooter>
-                      <Box display='flex' justifyContent='space-between'>
-                        <Button
-                          mr='2'
-                          p='2'
-                          colorScheme='red'
-                          onClick={handleClearCartLocalStorage}
-                          variant='solid'
-                          size='2xl'>
-                          Del cart  x
-                        </Button>
-                        <Box>
-                          <Button colorScheme='red' mr={3} onClick={onClose}>Close  x</Button>
-                          <Button colorScheme='teal'>Confirm Order</Button>
-                        </Box>
-                      </Box>
-                    </ModalFooter>
-                  </ModalContent>
-                </Modal>
+                <CartModal isOpen={isOpen} onClose={onClose} />
               </HStack>
               <HStack minW='40px' align='center'
                 spacing={4}>

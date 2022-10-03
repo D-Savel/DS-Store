@@ -20,7 +20,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export const ProductCard = (props) => {
   const { id, name, brand, category, imgUrl, price, stock, offerPercent } = props
   const dispatch = useDispatch()
-  const [isMobile] = useMediaQuery('(max-width: 1080px)')
+  const [isMobile] = useMediaQuery('(max-width: 1070px)')
 
   const handleAddToCart = () => dispatch(addToCart({ id: id, category: category, name: name, brand: brand, imgUrl: imgUrl, price: price, offerPercent: offerPercent, stock: stock, qty: 1 }))
 

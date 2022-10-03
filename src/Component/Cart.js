@@ -18,6 +18,7 @@ export const Cart = (props) => {
     <>
       {cart.length > 0 ?
         <VStack
+
           divider={<StackDivider borderColor='gray.200' />}
           spacing='1'
           align='stretch'
