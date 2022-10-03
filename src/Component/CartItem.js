@@ -48,7 +48,7 @@ export const CartItem = (props) => {
           <Text align='center' fontSize={fontSizing}>{name}</Text>
         </Box>
         <Text align='center' minW={!isMobile && '90px'} fontSize={fontSizing}> {formatAmountInEuro(netPrice)}</Text>
-        <NumberInput maxW='60px' size='sm' min='0' max={stock > 10 ? '10' : stock} defaultValue={qty} onChange={handleUpdateItemQty}>
+        <NumberInput minW={isMobile && '70px'} maxW='60px' size='sm' min='0' max={stock > 10 ? '10' : stock} defaultValue={qty} onChange={handleUpdateItemQty}>
           <NumberInputField />
           <NumberInputStepper>
             <NumberIncrementStepper />
