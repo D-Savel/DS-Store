@@ -11,8 +11,6 @@ export const Cart = (props) => {
 
   const cart = useSelector(state => state.cart.cartItems)
   const cartAmount = useSelector(state => state.cart.cartAmount)
-  console.log('cartItems State', cart)
-
 
   return (
     <>

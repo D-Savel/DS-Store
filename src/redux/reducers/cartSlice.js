@@ -32,12 +32,6 @@ const setCartQty = (cartItemsArray) => {
   return cartQty
 }
 
-console.log('cart Slice', getCart())
-console.log('initialCart', initialCart)
-console.log('initialCartAmount', setCartAmount(initialCart))
-console.log('initialQty', setCartQty(initialCart))
-
-
 export const cartSlice = createSlice({
 
   name: 'cart',
@@ -48,7 +42,6 @@ export const cartSlice = createSlice({
   },
   reducers: {
     addToCart: (state, action) => {
-      console.log('id / AddToCArt', action.payload.id)
       if (!getCart()) {
         state.cartItems.push(action.payload)
         saveLocalStorage('cart', state.cartItems)
@@ -79,7 +72,6 @@ export const cartSlice = createSlice({
     },
 
     delCartItem: (state, action) => {
-      console.log('id / delCartItem', action.payload.id)
       state.cartItems = getCart().filter(item => item.id !== action.payload.id)
       saveLocalStorage('cart', state.cartItems)
       state.itemsQty = setCartQty(state.cartItems)

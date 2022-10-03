@@ -28,13 +28,13 @@ export const NavigationListItems = (props) => {
         </Link>
         <MenuDivider />
         <Link as={ReachLink} to={'/Products'}>
-          <MenuItem onClick={() => (dispatch(setSelectCategory('phones')))}>Phones</MenuItem>
+          <MenuItem onClick={() => (dispatch(setSelectCategory('phone')))}>Phones</MenuItem>
         </Link>
         <Link as={ReachLink} to={'/Products'} >
-          <MenuItem onClick={() => (dispatch(setSelectCategory('computers')))}>Computers</MenuItem>
+          <MenuItem onClick={() => (dispatch(setSelectCategory('computer')))}>Computers</MenuItem>
         </Link>
         <Link as={ReachLink} to={'/Products'}>
-          <MenuItem onClick={() => (dispatch(setSelectCategory('accessories')))}>Accessories</MenuItem>
+          <MenuItem onClick={() => (dispatch(setSelectCategory('accessory')))}>Accessories</MenuItem>
         </Link>
       </MenuList>
       <Link fontSize='18' as={ReachLink} to={'/Offer'} pl='5'>Offers</Link>

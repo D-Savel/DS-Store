@@ -25,15 +25,15 @@ export const ProductCard = (props) => {
   const handleAddToCart = () => dispatch(addToCart({ id: id, category: category, name: name, brand: brand, imgUrl: imgUrl, price: price, offerPercent: offerPercent, stock: stock, qty: 1 }))
 
   return (
-    <Box px='2' py='2' shadow='md' borderWidth='1px' className='category-card'>
+    <Box px='1' py='2' shadow='md' borderWidth='1px' className='category-card'>
       < Grid
         h='300px'
-        templateAreas={`'category category' 'image productInfo' 'image price''stock cartButton'`}
-        gridTemplateRows={'1fr 3fr 2fr 1fr'}
+        templateAreas={`'category category' 'image productInfo' 'stock cartButton'`}
+        gridTemplateRows={'1fr 8fr 1fr'}
         gridTemplateColumns={'1fr 1fr'} gap='1' >
         <GridItem area='category' textAlign='center'>
           <HStack justifyContent='center'>
-            <Heading px='2' fontSize='1.6em'>{category.charAt(0).toUpperCase()}{category.slice(1, -1)}</Heading>
+            <Heading px='2' fontSize='1.6em'>{category.charAt(0).toUpperCase()}{category.slice(1)}</Heading>
             {offerPercent > 0 && <Badge
               w='40%'
               borderRadius='md'
@@ -44,20 +44,20 @@ export const ProductCard = (props) => {
             </Badge>}
           </HStack>
         </GridItem>
-        <GridItem area={'image'}>
-          <Box display="flex" alignItems="center" justifyContent="center">
+        <Box display='flex' alignItems='center' justifyContent='center'>
+          <GridItem area={'image'}>
             <Image
-              boxSize='210px'
+              boxSize='190px'
               objectFit='contain'
               borderRadius='lg'
               src={imgUrl}
               alt={category}
             />
-          </Box>
-        </GridItem>
-        <Box width='100%' display='flex' flexDirection='column' justifyContent='start' alignItems='center'>
-          <GridItem pt='3' area='productInfo'>
-            <Box height='100%' display='flex' flexDirection='column' justifyContent='start' alignItems='center'>
+          </GridItem>
+        </Box>
+        <Box mt='2' display='flex' flexDirection='column' alignItems='center' justifyContent='space-evenly'>
+          <GridItem area='productInfo'>
+            <Box textAlign='center'>
               <Badge
                 px='2'
                 fontSize='1em'
@@ -66,14 +66,27 @@ export const ProductCard = (props) => {
               >
                 {brand.charAt(0).toUpperCase()}{brand.slice(1)}
               </Badge>
-              <Box pt='2' textAlign='center' width='95'>
-                <Text fontSize='1.3em'>{name}</Text>
-              </Box>
+            </Box>
+            <Box pt='1' textAlign='center'>
+              <Text fontSize='1.3em'>{name}</Text>
+            </Box>
+            <Box textAlign='center'>
+              <PriceTag offerPercent={offerPercent} price={price} />
             </Box>
           </GridItem>
         </Box>
-        <GridItem pt='3' area='price' textAlign='center' justifyContent='end'>
-          <PriceTag offerPercent={offerPercent} price={price} />
+        <GridItem area={'stock'}>
+          <Flex justifyContent='center' alignItems='start' >
+            {stock < 1 ?
+              <Text fontSize='1.3em' color='red'>
+                Out of stock
+              </Text>
+              :
+              <Text fontSize='1.3em' color='green'>
+                Stock: {stock}
+              </Text>
+            }
+          </Flex>
         </GridItem>
         <GridItem textAlign='center' area='cartButton'>
           <Tooltip isDisabled={isMobile ? true : false} label='Add to cart>' placement='bottom' bg='teal.500'>
@@ -88,19 +101,6 @@ export const ProductCard = (props) => {
             </Button>
           </Tooltip>
         </GridItem>
-        <Flex pt='2' height='100%' justifyContent='center' alignItems='center' >
-          <GridItem area={'stock'}>
-            {stock < 1 ?
-              <Text fontSize='1.2em' color='red'>
-                Out of stock
-              </Text>
-              :
-              <Text fontSize='1.2em' color='green'>
-                Stock: {stock}
-              </Text>
-            }
-          </GridItem>
-        </Flex>
       </Grid >
     </Box >
   )

@@ -29,9 +29,6 @@ export const CartItem = (props) => {
   const handleDelCartItem = () => dispatch(delCartItem({ id: id }))
   const handleUpdateItemQty = (value) => dispatch(updateItemQty({ id: id, qty: value }))
 
-  console.log('idCartItem', id)
-  console.log('itemQty', qty)
-
   return (
     < ListItem >
       <HStack alignItems='center' justifyContent='space-around'>

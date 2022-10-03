@@ -4,6 +4,7 @@ import {
   Text
 } from '@chakra-ui/react'
 import { itemPricing } from '../utils/itemPricing'
+import { formatAmountInEuro } from '../utils/formatAmountInEuro'
 
 export const PriceTag = (props) => {
   const { price, offerPercent } = props
@@ -13,19 +14,18 @@ export const PriceTag = (props) => {
     <>
       {offerPercent > 0 ?
         <>
-          <Box display='flex' flexDirection='column' justifyContent='center' align='center'>
-            <Text as='s' fontSize='1em' color='grey' px='2'>
-              {price.toFixed(2)} €
+          <Box px='1' display='flex' flexDirection='crow' justifyContent='center' align='center' gap='2'>
+            <Text as='s' color='grey' px='1'>
+              {formatAmountInEuro(price)}
             </Text>
             <span>
               <Badge
-                w='80%'
-                px='2'
+                px='1'
                 borderRadius='md'
                 fontSize='1.2em'
                 variant='solid'
                 colorScheme='red'>
-                {netPrice.toFixed(2)} €
+                {formatAmountInEuro(netPrice)}
               </Badge>
             </span>
           </Box>
