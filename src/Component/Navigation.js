@@ -15,6 +15,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
+import { formatAmountInEuro } from '../utils/formatAmountInEuro'
 
 export const Navigation = (props) => {
 
@@ -69,7 +70,7 @@ export const Navigation = (props) => {
                   borderRadius='lg'
                   variant='solid'
                   colorScheme='blue'>
-                  {cartAmount.toFixed(2)} €
+                  {formatAmountInEuro(cartAmount)}
                 </Badge>
               </HStack>
             </Flex>

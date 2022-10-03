@@ -50,7 +50,8 @@ export const ProductCard = (props) => {
               boxSize='210px'
               objectFit='contain'
               borderRadius='lg'
-              src={imgUrl} alt={category}
+              src={imgUrl}
+              alt={category}
             />
           </Box>
         </GridItem>

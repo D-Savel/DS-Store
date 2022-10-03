@@ -1,10 +1,14 @@
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { delCart } from '../redux/reducers/cartSlice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { formatAmountInEuro } from '../utils/formatAmountInEuro'
 import {
   Box,
+  Badge,
   Button,
+  Divider,
+  HStack,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -12,6 +16,7 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
+  Text
 } from '@chakra-ui/react'
 import { Cart } from './Cart'
 
@@ -19,18 +24,37 @@ export const CartModal = (props) => {
   const { isOpen, onClose } = props
   const dispatch = useDispatch()
   const handleClearCartLocalStorage = () => dispatch(delCart())
+  const { cartAmount } = useSelector(state => state.cart)
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} size='3xl'>
       <ModalOverlay />
-      <ModalContent >
-        <ModalHeader>Cart</ModalHeader>
+      <ModalContent>
+        <ModalHeader px='3' pt='9' pb='2'>
+          <Box display='flex' justifyContent='space-between' alignItems='center'>
+            <FontAwesomeIcon size='lg' icon='icon="fa-duotone fa-cart-shopping' />
+            <HStack alignItems='center' pr='5'>
+              <Text fontSize='0.8em'>Cart Amount</Text>
+              <span>
+                <Badge
+                  fontSize='0.8em'
+                  borderRadius='lg'
+                  variant='solid'
+                  colorScheme='blue'>
+                  {formatAmountInEuro(cartAmount)}
+                </Badge>
+              </span>
+            </HStack>
+          </Box>
+          <Divider />
+          <Divider />
+        </ModalHeader>
         <ModalCloseButton />
-        <ModalBody>
+        <ModalBody px='2'>
           <Cart />
         </ModalBody>
         <ModalFooter>
-          <Box display='flex' justifyContent='space-between' gap='1' >
+          <HStack justifyContent='space-between'>
             <Button
               size='sm'
               colorScheme='red'
@@ -38,15 +62,15 @@ export const CartModal = (props) => {
               variant='solid'>
               <FontAwesomeIcon icon="fa-solid fa-trash-can" />
               <span>&nbsp;</span>
-              cart
+              Cart
             </Button>
             <Box>
-              <Button size='sm' colorScheme='red' mr='1' onClick={onClose}>Close  x</Button>
+              <Button size='sm' colorScheme='red' mr='1' onClick={onClose}>Close x</Button>
               <Button size='sm' colorScheme='teal'>Confirm Order</Button>
             </Box>
-          </Box>
+          </HStack>
         </ModalFooter>
       </ModalContent>
-    </Modal>
+    </Modal >
   )
 }
