@@ -1,4 +1,5 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { setSelectCategory } from '../redux/reducers/selectCategorySlice'
 import { products } from '../data/products'
 import {
   Box,
@@ -12,6 +13,9 @@ import { ProductCard } from '../Component/ProductCard'
 
 
 export const Offers = (props) => {
+
+  const dispatch = useDispatch()
+  dispatch(setSelectCategory('all categories'))
 
   const select = useSelector(state => state.selectCategory.value)
 
@@ -27,8 +31,8 @@ export const Offers = (props) => {
     <>
       <Heading w='100%' textAlign='center' mt='2' py='2' bg='red' color='white'>SPECIALS OFFERS FOR YOU !!!</Heading>
       <Box w='100%' pt='2'>
-        <Heading as='h1' py='3'>{select.charAt(0).toUpperCase()}{select.slice(1)}</Heading>
-        <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)', xl: 'repeat(4, 1fr)' }} gap='3'>
+        <Heading as='h1' pl='2' py='3'>{select.charAt(0).toUpperCase()}{select.slice(1)}</Heading>
+        <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)', xl: 'repeat(4, 1fr)' }} gap='3'>
           {productsList.map((product) => {
             return (
               <List key={product.id}>

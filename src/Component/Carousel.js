@@ -6,13 +6,15 @@ import {
   Box,
   Flex,
   Image,
-  Text
+  Text,
+  useMediaQuery
 } from '@chakra-ui/react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
 import { useState, useEffect, } from 'react'
 
 export const Carousel = () => {
   const [index, setIndex] = useState(0)
+  const [isMobile] = useMediaQuery('(max-height: 420px)')
   const carouselList = products.filter((product) => product.playInCarousel === true)
   const nextClick = () => {
     index === carouselList.length - 1 ? setIndex(0) : setIndex((current => current + 1))
@@ -29,7 +31,7 @@ export const Carousel = () => {
   }, [index, carouselList.length]);
 
   return (
-    <>
+    <Box pl='1'>
       < Box px='1' textAlign='center' backgroundColor='teal.500' borderWidth='1px' borderBottomWidth='0px' borderTopRadius='md' py='0' >
         <Flex justify='space-between' align='center'>
           <Button colorScheme='white' variant='solid' onClick={previousClick}>
@@ -47,7 +49,8 @@ export const Carousel = () => {
       </Box >
       <Center position='relative' z-index='1' py='2' pb='10' borderWidth='1px' borderBottomRadius='md' overflow='hidden'>
         <Image
-          h='350px'
+          boxSize={isMobile ? '200px' : '300px'}
+          objectFit='contain'
           borderRadius='lg'
           src={carouselList[index].imgUrl} alt={carouselList[index].name} />
         <Box position='absolute' z-index='0' right='auto' left='1' bottom='1'>
@@ -74,6 +77,6 @@ export const Carousel = () => {
           </Button>
         </Box>
       </Center >
-    </>
+    </Box>
   )
 }

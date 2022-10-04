@@ -17,7 +17,7 @@ export const OfferItems = (props) => {
           return (
             <List key={product.id}>
               <ListItem>
-                <Box py='1' pr='2' minW='270px'>
+                <Box py='1' pr='2' minW='310px'>
                   <ProductCard
                     id={product.id}
                     name={product.name}

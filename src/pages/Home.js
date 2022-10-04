@@ -10,7 +10,8 @@ import { OfferItems } from '../Component/OfferItems'
 
 export const Home = (props) => {
 
-  const [isMobile] = useMediaQuery('(max-width: 720px)')
+  const [isMobile] = useMediaQuery('(max-width: 820px)')
+  const menuCategoryHeight = isMobile ? "630px" : "730px"
 
   return (
     <>
@@ -60,7 +61,7 @@ export const Home = (props) => {
             <Carousel />
             <OfferItems />
           </Box>
-          <Box w='25%' pt='2' align='center' sx={{ overflow: "auto", height: "130vh" }}>
+          <Box w='25%' pt='2' align='center' sx={{ overflow: "auto", height: menuCategoryHeight }}>
             <Box>
               <Badge w='90%'
                 borderRadius='md'

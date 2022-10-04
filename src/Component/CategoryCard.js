@@ -13,13 +13,14 @@ export const CategoryCard = (props) => {
 
   return (
 
-    <Box display='flex' flexDirection='column' alignItems='center' justifyContent='space-between' minW='150px' minH='250px' w='auto' py='2' shadow='md' borderWidth='1px' className='category-card'>
+    <Box display='flex' flexDirection='column' alignItems='center' justifyContent='space-between' w='auto' py='2' shadow='md' borderWidth='1px' minW='180px' minH='250px' className='category-card'>
       <Heading fontSize='xl'>{category.charAt(0).toUpperCase()}{category.slice(1)}</Heading>
       <Center minH='80px' w='auto'>
         <Image
           borderRadius='lg'
           py='2'
-          src={imgUrl} alt={category}
+          src={imgUrl}
+          alt={category}
           sx={{
             '.category-card:hover &': {
               transition: 'all .2s ease-in -out',

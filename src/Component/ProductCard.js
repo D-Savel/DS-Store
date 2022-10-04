@@ -55,7 +55,7 @@ export const ProductCard = (props) => {
             />
           </GridItem>
         </Box>
-        <Box mt='2' display='flex' flexDirection='column' alignItems='center' justifyContent='space-evenly'>
+        <Box mt='2' w='190px' display='flex' flexDirection='column' alignItems='center' justifyContent='space-evenly'>
           <GridItem area='productInfo'>
             <Box textAlign='center'>
               <Badge
@@ -78,11 +78,11 @@ export const ProductCard = (props) => {
         <GridItem area={'stock'}>
           <Flex justifyContent='center' alignItems='start' >
             {stock < 1 ?
-              <Text fontSize='1.3em' color='red'>
+              <Text fontSize='1.1em' color='red'>
                 Out of stock
               </Text>
               :
-              <Text fontSize='1.3em' color='green'>
+              <Text fontSize='1.1em' color='green'>
                 Stock: {stock}
               </Text>
             }

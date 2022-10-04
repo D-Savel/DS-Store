@@ -3,20 +3,20 @@ import { nbProductsInCategory } from '../utils/nbProductsInCategory'
 export const categories = [
   {
     id: 1,
-    category: 'phones',
+    category: 'phone',
     imgUrl: 'https://cdn.pixabay.com/photo/2017/07/03/19/26/iphone-2468714_1280.png',
-    nbProducts: nbProductsInCategory('phones')
+    nbProducts: nbProductsInCategory('phone')
   }, {
     id: 2,
-    category: 'computers',
+    category: 'computer',
     imgUrl: 'https://mahasoft.ma/wp-content/uploads/2014/10/computers.png',
-    nbProducts: nbProductsInCategory('computers')
+    nbProducts: nbProductsInCategory('computer')
   },
   {
     id: 3,
-    category: 'accessories',
+    category: 'accessory',
     imgUrl: 'https://i.ebayimg.com/images/g/Jp8AAOSw9PxeU689/s-l300.png',
-    nbProducts: nbProductsInCategory('accessories')
+    nbProducts: nbProductsInCategory('accessory')
   },
   {
     id: 4,

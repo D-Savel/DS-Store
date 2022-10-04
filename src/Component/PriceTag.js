@@ -37,7 +37,7 @@ export const PriceTag = (props) => {
           fontSize='1.2em'
           variant='solid'
           colorScheme='green'>
-          {price.toFixed(2)} €
+          {formatAmountInEuro(price)}
         </Badge>
       }
     </>
