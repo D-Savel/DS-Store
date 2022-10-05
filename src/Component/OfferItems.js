@@ -16,9 +16,6 @@ export const OfferItems = (props) => {
         display='flex'
         flexWrap='nowrap'
         p='1'
-        shadow='md'
-        borderRadius='md'
-        borderWidth='1px'
       >
         {offerProductsList.map((product) => {
           return (
