@@ -15,7 +15,7 @@ import {
 
 export const CategoryCardMenu = (props) => {
   const dispatch = useDispatch()
-  const [isMobile] = useMediaQuery('(max-width: 720px)')
+  const [isMobile] = useMediaQuery('(max-width: 780px)')
   const badgeSxProperty = isMobile ?
     { writingMode: "vertical-rl", textOrientation: "upright3" } :
     { writingMode: "horizontal" }
