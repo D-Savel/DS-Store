@@ -25,7 +25,7 @@ export const ProductCard = (props) => {
   const handleAddToCart = () => dispatch(addToCart({ id: id, category: category, name: name, brand: brand, imgUrl: imgUrl, price: price, offerPercent: offerPercent, stock: stock, qty: 1 }))
 
   return (
-    <Box px='1' py='2' shadow='md' borderWidth='1px' className='category-card'>
+    <Box py='2' shadow='md' borderRadius='md' borderWidth='1px'>
       < Grid
         h='300px'
         templateAreas={`'category category' 'image productInfo' 'stock cartButton'`}
@@ -33,7 +33,7 @@ export const ProductCard = (props) => {
         gridTemplateColumns={'1fr 1fr'} gap='1' >
         <GridItem area='category' textAlign='center'>
           <HStack justifyContent='center'>
-            <Heading px='2' fontSize='1.6em'>{category.charAt(0).toUpperCase()}{category.slice(1)}</Heading>
+            <Heading as='h3' px='2' fontSize='1.4em'>{category.charAt(0).toUpperCase()}{category.slice(1)}</Heading>
             {offerPercent > 0 && <Badge
               w='40%'
               borderRadius='md'

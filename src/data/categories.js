@@ -20,8 +20,8 @@ export const categories = [
   },
   {
     id: 4,
-    category: 'all categories',
+    category: 'all',
     imgUrl: 'https://5.imimg.com/data5/TN/KK/GLADMIN-24522680/computers-sales-services-500x500.jpg',
-    nbProducts: nbProductsInCategory('all categories')
+    nbProducts: nbProductsInCategory('all')
   }
 ]
