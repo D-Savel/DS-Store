@@ -1,46 +1,25 @@
 import { useSelector } from 'react-redux'
-import { ProductCard } from "../Component/ProductCard"
 import { products } from "../data/products"
 import {
-  Box,
-  Grid,
-  GridItem,
-  Heading,
+  Box
 } from '@chakra-ui/react'
+import { ProductsDisplay } from '../Component/ProductsDisplay'
 
 export const Products = (props) => {
-  const selectCategory = useSelector(state => state.selectCategory.value)
+
+  const selectedCategory = useSelector(state => state.selectCategory.value)
 
   let productsList = []
   let sortedProductsList = products.sort((a, b) => a.category.localeCompare(b.category))
-  if (selectCategory === 'all categories') {
+  if (selectedCategory === 'all') {
     productsList = sortedProductsList
   } else {
-    productsList = products.filter(product => product.category === selectCategory)
+    productsList = products.filter(product => product.category === selectedCategory)
   }
 
   return (
     <Box px='1'>
-      <Heading as='h3' py='2'>{selectCategory.charAt(0).toUpperCase()}{selectCategory.slice(1)}</Heading>
-      <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)', xl: 'repeat(4, 1fr)' }} gap='3'>
-        {productsList.map((product) => {
-          return (
-            <GridItem key={product.id}>
-              <ProductCard
-                id={product.id}
-                name={product.name}
-                brand={product.brand}
-                category={product.category}
-                imgUrl={product.imgUrl}
-                nbProducts={product.nbProducts}
-                price={product.price}
-                stock={product.stock}
-                offerPercent={product.offerPercent}
-              />
-            </GridItem>
-          )
-        })}
-      </Grid>
+      <ProductsDisplay selectedCategory={selectedCategory} productsList={productsList} />
     </Box>
   )
 }

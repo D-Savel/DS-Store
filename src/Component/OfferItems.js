@@ -11,8 +11,15 @@ export const OfferItems = (props) => {
   let offerProductsList = products.filter(product => product.offerPercent > 0)
 
   return (
-    <Box sx={{ overflow: "auto" }} px='2'>
-      <Box display='flex' flexWrap='nowrap' p='1'>
+    <Box sx={{ overflow: "auto" }}>
+      <Box
+        display='flex'
+        flexWrap='nowrap'
+        p='1'
+        shadow='md'
+        borderRadius='md'
+        borderWidth='1px'
+      >
         {offerProductsList.map((product) => {
           return (
             <List key={product.id}>

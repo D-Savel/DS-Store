@@ -13,10 +13,23 @@ export const CategoryCard = (props) => {
 
   return (
 
-    <Box display='flex' flexDirection='column' alignItems='center' justifyContent='space-between' w='auto' py='2' shadow='md' borderWidth='1px' minW='180px' minH='250px' className='category-card'>
+    <Box
+      w='220px'
+      borderRadius='md'
+      borderWidth='1px'
+      shadow='md'
+      display='flex'
+      flexDirection='column'
+      alignItems='center'
+      justifyContent='space-between'
+      py='1'
+      minH='250px'
+      className='category-card'>
       <Heading fontSize='xl'>{category.charAt(0).toUpperCase()}{category.slice(1)}</Heading>
       <Center minH='80px' w='auto'>
         <Image
+          boxSize='200px'
+          objectFit='contain'
           borderRadius='lg'
           py='2'
           src={imgUrl}

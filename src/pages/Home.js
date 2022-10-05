@@ -20,20 +20,6 @@ export const Home = (props) => {
           <Carousel />
           <Box py='2'>
             <Box display='flex' flexWrap='nowrap' sx={{ overflow: "auto" }}>
-              <Badge
-                my='2'
-                borderRadius='md'
-                fontSize='1em'
-                size='lg'
-                py='2'
-                variant='solid'
-                colorScheme='teal'
-                sx={{
-                  writingMode: "vertical-rl",
-                  textOrientation: "upright3"
-                }}>
-                Products
-              </Badge>
               <CategoryCardMenu />
             </Box>
           </Box>
@@ -56,25 +42,13 @@ export const Home = (props) => {
           </Box>
         </Box>
       ) : (
-        <Flex pr='1'>
+        <Flex gap='1' px='1'>
           <Box display='flex' flexDirection='column' w='75%' pt='2' >
             <Carousel />
             <OfferItems />
           </Box>
-          <Box w='25%' pt='2' align='center' sx={{ overflow: "auto", height: menuCategoryHeight }}>
-            <Box>
-              <Badge w='90%'
-                borderRadius='md'
-                fontSize='1em'
-                size='lg'
-                py='1'
-                variant='solid'
-                colorScheme='teal'
-              >
-                Products
-              </Badge>
-              <CategoryCardMenu />
-            </Box>
+          <Box display='flex' flexDirection='column' w='25%' alignItems='center' textAlign='center' sx={{ overflow: "auto", height: menuCategoryHeight }}>
+            <CategoryCardMenu />
           </Box>
         </Flex >
       )

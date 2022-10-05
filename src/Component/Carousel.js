@@ -31,7 +31,7 @@ export const Carousel = () => {
   }, [index, carouselList.length]);
 
   return (
-    <Box pl='1'>
+    <Box>
       < Box px='1' textAlign='center' backgroundColor='teal.500' borderWidth='1px' borderBottomWidth='0px' borderTopRadius='md' py='0' >
         <Flex justify='space-between' align='center'>
           <Button colorScheme='white' variant='solid' onClick={previousClick}>

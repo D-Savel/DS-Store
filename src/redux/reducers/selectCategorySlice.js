@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 export const selectCategorySlice = createSlice({
   name: 'selectCategory',
-  initialState: { value: 'all categories' },
+  initialState: { value: 'all' },
   reducers: {
     setSelectCategory(state, action) {
       state.value = action.payload;

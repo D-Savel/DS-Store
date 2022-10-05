@@ -24,7 +24,7 @@ export const NavigationListItems = (props) => {
       </MenuButton>
       <MenuList>
         <Link as={ReachLink} to={'/Products'}>
-          <MenuItem onClick={() => (dispatch(setSelectCategory('all categories')))}>All</MenuItem>
+          <MenuItem onClick={() => (dispatch(setSelectCategory('all')))}>All</MenuItem>
         </Link>
         <MenuDivider />
         <Link as={ReachLink} to={'/Products'}>
@@ -37,7 +37,7 @@ export const NavigationListItems = (props) => {
           <MenuItem onClick={() => (dispatch(setSelectCategory('accessory')))}>Accessories</MenuItem>
         </Link>
       </MenuList>
-      <Link fontSize='18' as={ReachLink} to={'/Offer'} pl='5'>Offers</Link>
+      <Link fontSize='18' as={ReachLink} to={'/Offers'} pl='5'>Offers</Link>
       <Link fontSize='18' as={ReachLink} to={'/Contact'} pl='5'>Contact</Link>
     </Menu>
   )
