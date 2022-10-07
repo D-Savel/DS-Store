@@ -9,7 +9,17 @@ export const products = [
     price: 529,
     offerPercent: 0,
     playInCarousel: false,
-    stock: 25
+    stock: 25,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [2, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [2, 3],
+    ]
   }, {
     id: 2,
     category: 'phone',
@@ -20,7 +30,17 @@ export const products = [
     price: 849,
     offerPercent: 25,
     playInCarousel: true,
-    stock: 0
+    stock: 0,
+    specifications: [
+      [1, 9],
+      [2, 4],
+      [1, 12],
+      [1, 8],
+      [2, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 3,
@@ -32,7 +52,17 @@ export const products = [
     price: 849,
     offerPercent: 25,
     playInCarousel: true,
-    stock: 5
+    stock: 5,
+    specifications: [
+      [1, 9],
+      [2, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [2, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 4,
@@ -44,7 +74,17 @@ export const products = [
     price: 899,
     offerPercent: 0,
     playInCarousel: true,
-    stock: 57
+    stock: 57,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [2, 3],
+    ]
   },
   {
     id: 5,
@@ -56,7 +96,17 @@ export const products = [
     price: 899,
     offerPercent: 0,
     playInCarousel: true,
-    stock: 65
+    stock: 65,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 6,
@@ -68,7 +118,17 @@ export const products = [
     price: 899,
     offerPercent: 0,
     playInCarousel: true,
-    stock: 30
+    stock: 30,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [2, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 7,
@@ -80,7 +140,17 @@ export const products = [
     price: 809,
     offerPercent: 10,
     playInCarousel: true,
-    stock: 30
+    stock: 30,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 8,
@@ -92,7 +162,17 @@ export const products = [
     price: 1259,
     offerPercent: 0,
     playInCarousel: true,
-    stock: 30
+    stock: 30,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [2, 3],
+    ]
   },
   {
     id: 9,
@@ -104,7 +184,17 @@ export const products = [
     price: 1259,
     offerPercent: 0,
     playInCarousel: true,
-    stock: 30
+    stock: 30,
+    specifications: [
+      [1, 9],
+      [2, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 10,
@@ -116,7 +206,17 @@ export const products = [
     price: 1259,
     offerPercent: 0,
     playInCarousel: true,
-    stock: 30
+    stock: 30,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 11,
@@ -128,7 +228,17 @@ export const products = [
     price: 1259,
     offerPercent: 0,
     playInCarousel: true,
-    stock: 30
+    stock: 30,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 12,
@@ -140,7 +250,17 @@ export const products = [
     price: 499,
     offerPercent: 15,
     playInCarousel: true,
-    stock: 25
+    stock: 25,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 13,
@@ -152,7 +272,17 @@ export const products = [
     price: 499,
     offerPercent: 15,
     playInCarousel: true,
-    stock: 25
+    stock: 25,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 200,
@@ -163,7 +293,17 @@ export const products = [
     price: 159,
     offerPercent: 0,
     playInCarousel: true,
-    stock: 20
+    stock: 20,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 201,
@@ -174,7 +314,17 @@ export const products = [
     price: 159,
     offerPercent: 0,
     playInCarousel: true,
-    stock: 45
+    stock: 45,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 202,
@@ -185,7 +335,17 @@ export const products = [
     price: 159,
     offerPercent: 0,
     playInCarousel: false,
-    stock: 45
+    stock: 45,
+    specifications: [
+      [2, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 203,
@@ -196,7 +356,17 @@ export const products = [
     price: 289,
     offerPercent: 10,
     playInCarousel: false,
-    stock: 22
+    stock: 22,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [2, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 204,
@@ -207,7 +377,17 @@ export const products = [
     price: 229,
     offerPercent: 0,
     playInCarousel: true,
-    stock: 22
+    stock: 22,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 205,
@@ -218,7 +398,17 @@ export const products = [
     price: 109,
     offerPercent: 0,
     playInCarousel: false,
-    stock: 35
+    stock: 35,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 206,
@@ -229,7 +419,17 @@ export const products = [
     price: 205,
     offerPercent: 0,
     playInCarousel: false,
-    stock: 12
+    stock: 12,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 207,
@@ -240,7 +440,17 @@ export const products = [
     price: 85,
     offerPercent: 0,
     playInCarousel: false,
-    stock: 32
+    stock: 32,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 208,
@@ -251,7 +461,17 @@ export const products = [
     price: 85,
     offerPercent: 0,
     playInCarousel: false,
-    stock: 32
+    stock: 32,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 209,
@@ -262,7 +482,17 @@ export const products = [
     price: 1749,
     offerPercent: 0,
     playInCarousel: true,
-    stock: 25
+    stock: 25,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 300,
@@ -273,7 +503,17 @@ export const products = [
     price: 1449,
     offerPercent: 0,
     playInCarousel: true,
-    stock: 0
+    stock: 0,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 301,
@@ -284,7 +524,17 @@ export const products = [
     price: 1449,
     offerPercent: 0,
     playInCarousel: true,
-    stock: 0
+    stock: 0,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   }, {
     id: 302,
     category: 'computer',
@@ -294,7 +544,17 @@ export const products = [
     price: 1449,
     offerPercent: 0,
     playInCarousel: false,
-    stock: 0
+    stock: 2,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 303,
@@ -305,7 +565,17 @@ export const products = [
     price: 1199,
     offerPercent: 0,
     playInCarousel: false,
-    stock: 7
+    stock: 7,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 304,
@@ -316,7 +586,17 @@ export const products = [
     price: 1199,
     offerPercent: 0,
     playInCarousel: false,
-    stock: 5
+    stock: 5,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 305,
@@ -327,7 +607,17 @@ export const products = [
     price: 1959,
     offerPercent: 0,
     playInCarousel: true,
-    stock: 9
+    stock: 9,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 306,
@@ -335,10 +625,20 @@ export const products = [
     brand: 'Apple',
     name: "Macbook Pro 14\" Graphite - M1 - 512Go SSD - 32Go Ram",
     imgUrl: 'https://image.darty.com/informatique/macbook_imac_ipad/macbook/apple_m16_m1p_10_16_32_1to_s2110184788451A_215711758.jpg',
-    price: 3439,
+    price: 2739,
     offerPercent: 10,
     playInCarousel: true,
-    stock: 9
+    stock: 9,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
   {
     id: 307,
@@ -349,6 +649,16 @@ export const products = [
     price: 1959,
     offerPercent: 0,
     playInCarousel: true,
-    stock: 9
+    stock: 9,
+    specifications: [
+      [1, 9],
+      [1, 4],
+      [1, 12],
+      [1, 8],
+      [1, 4],
+      [1, 6],
+      [1, 11],
+      [1, 3],
+    ]
   },
 ]

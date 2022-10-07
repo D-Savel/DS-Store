@@ -29,11 +29,7 @@ export const Navigation = (props) => {
     <Box position='sticky' w='100%' top='0' zIndex='sticky' bg='gray.300'>
       <Flex align='center' justify='space-between' direction='row'>
         <Box as='nav' bg='gray.300' >
-          {isMobile ? (
-            <MobileNavigation />
-          ) : (
-            <NavigationListItems />
-          )}
+          {isMobile ? (<MobileNavigation />) : (<NavigationListItems />)}
         </Box>
         <Box>
           <Button mr='2' py='1' px='2' colorScheme='blackAlpha' variant='solid' onClick={toggleColorMode} size='2xl'>
@@ -49,14 +45,14 @@ export const Navigation = (props) => {
                 </Tooltip>
                 <CartModal isOpen={isOpen} onClose={onClose} />
               </HStack>
-              <HStack minW='40px' align='center'
-                spacing={4}>
+              <HStack minW='40px' align='center' spacing={4}>
                 <Badge
                   position='absolute'
                   z-index='1'
                   left='8'
                   bottom='-1'
-                  pt='1' px='2'
+                  pt='1'
+                  px='2'
                   fontSize='1.1em'
                   borderRadius='xl'
                   variant='solid'

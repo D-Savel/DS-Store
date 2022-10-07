@@ -9,6 +9,7 @@ import { ProductCard } from './ProductCard'
 
 export const ProductsDisplay = (props) => {
   const { selectedCategory, productsList } = props
+
   return (
     <Box>
       <Heading as='h1' fontSize='1.8em' pb='1' pl='3' >
@@ -28,6 +29,7 @@ export const ProductsDisplay = (props) => {
                 price={product.price}
                 stock={product.stock}
                 offerPercent={product.offerPercent}
+                specifications={product.specifications}
               />
             </GridItem>
           )

@@ -7,7 +7,6 @@ import {
 } from '@chakra-ui/react'
 
 export const OfferItems = (props) => {
-
   let offerProductsList = products.filter(product => product.offerPercent > 0)
 
   return (
@@ -17,21 +16,21 @@ export const OfferItems = (props) => {
         flexWrap='nowrap'
         p='1'
       >
-        {offerProductsList.map((product) => {
+        {offerProductsList.map(({ id,category, name, brand, imgUrl, price, offerPercent, stock , nbProducts}) => {
           return (
-            <List key={product.id}>
+            <List key={id}>
               <ListItem>
                 <Box py='1' pr='2' minW='310px'>
                   <ProductCard
-                    id={product.id}
-                    name={product.name}
-                    brand={product.brand}
-                    category={product.category}
-                    imgUrl={product.imgUrl}
-                    nbProducts={product.nbProducts}
-                    price={product.price}
-                    stock={product.stock}
-                    offerPercent={product.offerPercent}
+                    id={id}
+                    name={name}
+                    brand={brand}
+                    category={category}
+                    imgUrl={imgUrl}
+                    nbProducts={nbProducts}
+                    price={price}
+                    stock={stock}
+                    offerPercent={offerPercent}
                   />
                 </Box>
               </ListItem>

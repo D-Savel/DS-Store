@@ -21,20 +21,11 @@ export const Cart = (props) => {
           spacing='1'
           align='stretch'
         >
-          {cart.map((item) => {
+          {cart.map((product) => {
             return (
-              <List key={item.id}>
+              <List key={product.id}>
                 <CartItem
-                  id={item.id}
-                  name={item.name}
-                  brand={item.brand}
-                  category={item.category}
-                  imgUrl={item.imgUrl}
-                  nbProducts={item.nbProducts}
-                  price={item.price}
-                  stock={item.stock}
-                  offerPercent={item.offerPercent}
-                  qty={item.qty}
+                  product={product}
                   cartAmount={cartAmount}
                 />
               </List>

@@ -25,7 +25,7 @@ export const CategoryCard = (props) => {
       py='1'
       minH='250px'
       className='category-card'>
-      <Heading fontSize='xl'>{category.charAt(0).toUpperCase()}{category.slice(1)}</Heading>
+      <Heading textTransform='capitalize' fontSize='xl'>{category}</Heading>
       <Center minH='80px' w='auto'>
         <Image
           boxSize='200px'

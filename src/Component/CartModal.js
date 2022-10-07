@@ -30,14 +30,15 @@ export const CartModal = (props) => {
     <Modal isOpen={isOpen} onClose={onClose} size='3xl'>
       <ModalOverlay />
       <ModalContent>
+        <ModalCloseButton />
         <ModalHeader px='3' pt='9' pb='2'>
           <Box display='flex' justifyContent='space-between' alignItems='center'>
             <FontAwesomeIcon size='lg' icon='icon="fa-duotone fa-cart-shopping' />
-            <HStack alignItems='center' pr='5'>
-              <Text fontSize='0.8em'>Cart Amount</Text>
+            <HStack alignItems='center'>
+              <Text fontSize='0.9em'>Cart Amount</Text>
               <span>
                 <Badge
-                  fontSize='0.8em'
+                  fontSize='0.9em'
                   borderRadius='lg'
                   variant='solid'
                   colorScheme='blue'>
@@ -49,12 +50,11 @@ export const CartModal = (props) => {
           <Divider />
           <Divider />
         </ModalHeader>
-        <ModalCloseButton />
         <ModalBody px='2'>
           <Cart />
         </ModalBody>
-        <ModalFooter>
-          <HStack justifyContent='space-between'>
+        <ModalFooter display='flex' justifyContent='space-between'>
+          <HStack>
             <Button
               size='sm'
               colorScheme='red'
@@ -64,11 +64,9 @@ export const CartModal = (props) => {
               <span>&nbsp;</span>
               Cart
             </Button>
-            <Box>
-              <Button size='sm' colorScheme='red' mr='1' onClick={onClose}>Close x</Button>
-              <Button size='sm' colorScheme='teal'>Confirm Order</Button>
-            </Box>
+            <Button size='sm' colorScheme='red' mr='1' onClick={onClose}>Close x</Button>
           </HStack>
+          <Button size='sm' colorScheme='teal'>Order</Button>
         </ModalFooter>
       </ModalContent>
     </Modal >
