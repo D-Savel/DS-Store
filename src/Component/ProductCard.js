@@ -1,28 +1,35 @@
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../redux/reducers/cartSlice'
 import { PriceTag } from './PriceTag'
+import { AddToCartButton } from './AddToCartButton'
 import {
   Badge,
-  Button,
   Box,
   Flex,
   Grid,
   GridItem,
   Heading,
   HStack,
+
   Image,
   Text,
-  Tooltip,
-  useMediaQuery
+  useMediaQuery,
+  useDisclosure
 } from '@chakra-ui/react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { DetailedProductModal } from './DetailedProductModal'
 
 export const ProductCard = (props) => {
-  const { id, name, brand, category, imgUrl, price, stock, offerPercent } = props
+  const { id, category, name, brand, imgUrl, price, offerPercent, stock, specifications } = props
+  const product = { id: id, category: category, name: name, brand: brand, imgUrl: imgUrl, price: price, offerPercent: offerPercent, stock: stock, specifications: specifications }
   const dispatch = useDispatch()
   const [isMobile] = useMediaQuery('(max-width: 1070px)')
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const handleAddToCart = () => dispatch(addToCart({ id: id, category: category, name: name, brand: brand, imgUrl: imgUrl, price: price, offerPercent: offerPercent, stock: stock, qty: 1 }))
+  const handleAddToCart = () => {
+    let cartItems = { ...product }
+    cartItems.qty = 1
+    dispatch(addToCart(cartItems))
+  }
 
   return (
     <Box py='2' shadow='md' borderRadius='md' borderWidth='1px'>
@@ -33,7 +40,7 @@ export const ProductCard = (props) => {
         gridTemplateColumns={'1fr 1fr'} gap='1' >
         <GridItem area='category' textAlign='center'>
           <HStack justifyContent='center'>
-            <Heading as='h3' px='2' fontSize='1.4em'>{category.charAt(0).toUpperCase()}{category.slice(1)}</Heading>
+            <Heading as='h3' px='2' textTransform='capitalize' fontSize='1.4em'>{category}</Heading>
             {offerPercent > 0 && <Badge
               w='40%'
               borderRadius='md'
@@ -55,7 +62,19 @@ export const ProductCard = (props) => {
             />
           </GridItem>
         </Box>
-        <Box mt='2' w='190px' display='flex' flexDirection='column' alignItems='center' justifyContent='space-evenly'>
+        <Box as='button'
+          mt='1' w='190px'
+          display='flex'
+          flexDirection='column'
+          alignItems='center'
+          justifyContent='space-evenly'
+          _hover={{
+            background: "white",
+            color: "teal.500",
+          }}
+          onClick={onOpen}
+        >
+          <DetailedProductModal isOpen={isOpen} onClose={onClose} idItem={id} />
           <GridItem area='productInfo'>
             <Box textAlign='center'>
               <Badge
@@ -64,7 +83,7 @@ export const ProductCard = (props) => {
                 borderRadius='md'
                 variant='solid'
               >
-                {brand.charAt(0).toUpperCase()}{brand.slice(1)}
+                {brand}
               </Badge>
             </Box>
             <Box pt='1' textAlign='center'>
@@ -89,17 +108,7 @@ export const ProductCard = (props) => {
           </Flex>
         </GridItem>
         <GridItem textAlign='center' area='cartButton'>
-          <Tooltip isDisabled={isMobile ? true : false} label='Add to cart>' placement='bottom' bg='teal.500'>
-            <Button
-              borderRadius='md'
-              size='md'
-              variant='outline'
-              colorScheme='teal'
-              isDisabled={stock > 0 ? false : true}
-              onClick={handleAddToCart} >
-              <FontAwesomeIcon size='2xl' icon='fa-solid fa-cart-shopping' color='teal' />
-            </Button>
-          </Tooltip>
+          <AddToCartButton handleAddToCart={handleAddToCart} stock={stock} isMobile={isMobile} />
         </GridItem>
       </Grid >
     </Box >

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { products } from '../data/products.js'
 import {
   Button,
@@ -7,28 +8,37 @@ import {
   Flex,
   Image,
   Text,
-  useMediaQuery
+  useMediaQuery,
+  useDisclosure
 } from '@chakra-ui/react'
+import { DetailedProductModal } from './DetailedProductModal.js'
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
-import { useState, useEffect, } from 'react'
+
 
 export const Carousel = () => {
+  const [isMounted, setIsMounted] = useState(true)
   const [index, setIndex] = useState(0)
   const [isMobile] = useMediaQuery('(max-height: 420px)')
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   const carouselList = products.filter((product) => product.playInCarousel === true)
+
   const nextClick = () => {
     index === carouselList.length - 1 ? setIndex(0) : setIndex((current => current + 1))
   }
   const previousClick = () => {
-    index === 0 ? setIndex(carouselList.length - 1) : setIndex((current => current - 1))
+    index === 0 ? setIndex(carouselList.len0h - 1) : setIndex((current => current - 1))
   }
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      index === carouselList.length - 1 ? setIndex(0) : setIndex((current => current + 1))
-    }, 3000);
-    return () => clearInterval(intervalId)
-  }, [index, carouselList.length]);
+    if (isMounted) {
+      const intervalId = setInterval(() => {
+        index === carouselList.length - 1 ? setIndex(0) : setIndex((current => current + 1))
+      }, 3000)
+      return () => clearInterval(intervalId)
+    }
+  }, [index, carouselList.length, carouselList, isMounted])
+
 
   return (
     <Box>
@@ -69,12 +79,17 @@ export const Carousel = () => {
             size='md'
             variant='solid'
             colorScheme='teal'
+            onClick={() => {
+              onOpen()
+              setIsMounted(false)
+            }}
             _hover={{
               background: "white",
               color: "teal.500",
             }}>
             Shop now
           </Button>
+          <DetailedProductModal isOpen={isOpen} onClose={onClose} isMounted={isMounted} setIsMounted={setIsMounted} idItem={carouselList[index].id} />
         </Box>
       </Center >
     </Box>

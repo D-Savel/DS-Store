@@ -20,10 +20,11 @@ import {
 } from '@chakra-ui/react'
 
 export const CartItem = (props) => {
-  const { id, name, brand, imgUrl, price, offerPercent, qty, stock } = props
+  const { product } = props
+  const { id, name, brand, imgUrl, price, offerPercent, qty, stock } = product
   const [isMobile] = useMediaQuery('(max-width: 420px)')
   const netPrice = itemPricing(price, offerPercent)
-  const fontSizing = isMobile ? '0.8em' : '1.1em'
+  const fontSizing = isMobile ? '0.9em' : '1.1em'
 
   const dispatch = useDispatch()
   const handleDelCartItem = () => dispatch(delCartItem({ id: id }))
@@ -31,6 +32,14 @@ export const CartItem = (props) => {
 
   return (
     < ListItem >
+      {isMobile && (
+        <Box w={!isMobile && '300px'} display='flex' flexDirection='row' justifyContent='space-between' alignItems='center'>
+          <Badge ml='2' mb='1' fontSize='0.7em' px='2' borderRadius='md' variant='solid'>
+            {brand}
+          </Badge>
+          <Text w='290px' fontWeight='extrabold' fontSize={fontSizing}>{name}</Text>
+        </Box>
+      )}
       <HStack alignItems='center' justifyContent='space-around'>
         <Image
           boxSize='50px'
@@ -38,14 +47,16 @@ export const CartItem = (props) => {
           src={imgUrl}
           alt={name}
         />
-        <Box minW={!isMobile && '300px'} display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
-          <Badge mb='1' fontSize='0.7em' px='2' borderRadius='md' variant='solid'>
-            {brand.charAt(0).toUpperCase()}{brand.slice(1)}
-          </Badge>
-          <Text align='center' fontSize={fontSizing}>{name}</Text>
-        </Box>
+        {!isMobile && (
+          <Box w={!isMobile && '370px'} display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
+            <Badge mb='1' fontSize='0.8em' px='2' borderRadius='md' variant='solid'>
+              {brand}
+            </Badge>
+            <Text align='center' fontWeight='extrabold' fontSize={fontSizing}>{name}</Text>
+          </Box>
+        )}
         <Text align='center' minW={!isMobile && '90px'} fontSize={fontSizing}> {formatAmountInEuro(netPrice)}</Text>
-        <NumberInput minW={isMobile && '70px'} maxW='60px' size='sm' min='0' max={stock > 10 ? '10' : stock} defaultValue={qty} onChange={handleUpdateItemQty}>
+        <NumberInput w='65px' size='sm' min='0' max={stock > 10 ? '10' : stock} defaultValue={qty} onChange={handleUpdateItemQty}>
           <NumberInputField />
           <NumberInputStepper>
             <NumberIncrementStepper />
