@@ -16,7 +16,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
 
 
 export const Carousel = () => {
-  const [isMounted, setIsMounted] = useState(true)
+  const [isCarouselPlaying, setIsCarouselPlaying] = useState(true)
   const [index, setIndex] = useState(0)
   const [isMobile] = useMediaQuery('(max-height: 420px)')
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -31,13 +31,13 @@ export const Carousel = () => {
   }
 
   useEffect(() => {
-    if (isMounted) {
+    if (isCarouselPlaying) {
       const intervalId = setInterval(() => {
         index === carouselList.length - 1 ? setIndex(0) : setIndex((current => current + 1))
       }, 3000)
       return () => clearInterval(intervalId)
     }
-  }, [index, carouselList.length, carouselList, isMounted])
+  }, [index, carouselList.length, carouselList, isCarouselPlaying])
 
 
   return (
@@ -81,7 +81,7 @@ export const Carousel = () => {
             colorScheme='teal'
             onClick={() => {
               onOpen()
-              setIsMounted(false)
+              setIsCarouselPlaying(false)
             }}
             _hover={{
               background: "white",
@@ -89,7 +89,7 @@ export const Carousel = () => {
             }}>
             Shop now
           </Button>
-          <DetailedProductModal isOpen={isOpen} onClose={onClose} isMounted={isMounted} setIsMounted={setIsMounted} idItem={carouselList[index].id} />
+          <DetailedProductModal isOpen={isOpen} onClose={onClose} isCarouselPlaying={isCarouselPlaying} setIsCarouselPlaying={setIsCarouselPlaying} idItem={carouselList[index].id} />
         </Box>
       </Center >
     </Box>

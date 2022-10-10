@@ -8,7 +8,8 @@ const saveLocalStorage = (path, value) => {
 }
 const getCart = () => {
   let cart = JSON.parse(localStorage.getItem('cart'))
-  if (cart !== null) {
+  console.log('getCart', cart)
+  if (cart) {
     initialCart = cart
     return cart
   }
@@ -36,7 +37,7 @@ export const cartSlice = createSlice({
 
   name: 'cart',
   initialState: {
-    cartItems: initialCart,
+    cartItems: getCart(),
     cartAmount: setCartAmount(initialCart),
     itemsQty: setCartQty(initialCart)
   },

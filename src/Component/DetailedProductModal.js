@@ -24,7 +24,7 @@ import {
 } from '@chakra-ui/react'
 
 export const DetailedProductModal = (props) => {
-  const { isOpen, onClose, idItem, isMounted, setIsMounted } = props
+  const { isOpen, onClose, idItem, isCarouselPlaying, setIsCarouselPlaying } = props
   const product = findProductItemsWithId(idItem)
   const { category, name, brand, imgUrl, price, offerPercent, stock, specifications } = product
 
@@ -40,14 +40,14 @@ export const DetailedProductModal = (props) => {
 
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size='3xl'>
+    <Modal isOpen={isOpen} onClose={onClose} blockScrollOnMount={false} size='3xl'>
       <ModalOverlay />
       <ModalContent>
         <ModalCloseButton
           mb='2'
           onClick={() => {
             onClose()
-            if (isMounted === false) { setIsMounted(!isMounted) }
+            if (isCarouselPlaying === false) { setIsCarouselPlaying(!isCarouselPlaying) }
           }} />
         <ModalHeader>
           <Box mt='4' display='flex' justifyContent='space-between' alignItems='center'>
@@ -112,7 +112,7 @@ export const DetailedProductModal = (props) => {
             mr='1'
             onClick={() => {
               onClose()
-              if (isMounted === false) { setIsMounted(!isMounted) }
+              if (isCarouselPlaying === false) { setIsCarouselPlaying(!isCarouselPlaying) }
             }}>
             Close x
           </Button>
