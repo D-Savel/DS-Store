@@ -11,7 +11,7 @@ This personal project is about e-commerce website. The application offers the cl
     * Cart page
     * Contact page
 
-## ds-store screeshot ##
+## ds-store screenshot ##
 
 **Home page**
 
