@@ -5,7 +5,7 @@ This personal project is about e-commerce website. The application offers the cl
   - Fonctionalities
     * Responsive application
     * Home page with carousel for promotion of products
-    * Product page whith category filter
+    * Product page with category filter
     * Product details page
     * Handling Cart (updating qty and cart price on product add)
     * Cart page
@@ -15,7 +15,7 @@ This personal project is about e-commerce website. The application offers the cl
 
 **Home page**
 
-![alt Account registration](https://github.com/D-Savel/fast-delivery-project/blob/main/Screenshots/ds-shop.png?raw=true)
+![alt Account registration](https://github.com/D-Savel/ds-store/blob/main/Screenshots/ds-shop.png?raw=true)
 
 ## ds-store technnology stack ##
 
