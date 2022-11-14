@@ -9,7 +9,7 @@ const saveLocalStorage = (path, value) => {
 const getCart = () => {
   let cart = JSON.parse(localStorage.getItem('cart'))
   console.log('getCart', cart)
-  if (cart) {
+  if (!!cart) {
     initialCart = cart
     return cart
   }
