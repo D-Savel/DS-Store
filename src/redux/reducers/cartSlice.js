@@ -5,15 +5,6 @@ const saveLocalStorage = (path, value) => {
   localStorage.setItem(path, JSON.stringify(value))
 }
 
-const initialCart = () => {
-  let initialCart = []
-  let cart = JSON.parse(localStorage.getItem('cart'))
-  console.log('initialCart', cart)
-  if (cart) {
-    initialCart = cart
-    return initialCart
-  }
-}
 
 const getCart = () => {
   let cart = JSON.parse(localStorage.getItem('cart'))
