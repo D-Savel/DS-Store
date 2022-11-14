@@ -5,6 +5,15 @@ const saveLocalStorage = (path, value) => {
   localStorage.setItem(path, JSON.stringify(value))
 }
 
+const initialCart = () => {
+  let initialCart = []
+  let cart = JSON.parse(localStorage.getItem('cart'))
+  console.log('initialCart', cart)
+  if (cart !== []) {
+    initialCart = cart
+    return initialCart
+  }
+}
 
 const getCart = () => {
   let cart = JSON.parse(localStorage.getItem('cart'))
@@ -36,9 +45,9 @@ const setCartQty = (cartItemsArray) => {
 export const cartSlice = createSlice({
   name: 'cart',
   initialState: {
-    cartItems: [],
-    cartAmount: 0,
-    itemsQty: 0
+    cartItems: initialCart(),
+    cartAmount: setCartAmount(initialCart()),
+    itemsQty: setCartQty(initialCart())
   },
   reducers: {
     addToCart: (state, action) => {
