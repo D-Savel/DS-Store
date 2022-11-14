@@ -11,7 +11,7 @@ const getCart = () => {
   return cart
 }
 
-let initialCart = getCart()
+let initialCart = []
 
 const setCartAmount = (cartItemsArray) => {
   let price = 0
