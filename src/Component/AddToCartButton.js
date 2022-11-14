@@ -1,11 +1,10 @@
 import {
-  Button,
-  Tooltip
+  Button
 } from '@chakra-ui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const AddToCartButton = (props) => {
-  const { handleAddToCart, stock, isMobile } = props
+  const { handleAddToCart, stock } = props
   return (
 
     <Button
