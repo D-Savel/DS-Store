@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 
+let initialCart = []
 
 
 const saveLocalStorage = (path, value) => {
@@ -8,10 +9,12 @@ const saveLocalStorage = (path, value) => {
 const getCart = () => {
   let cart = JSON.parse(localStorage.getItem('cart'))
   console.log('getCart', cart)
-  return cart
+  if (cart !== null) {
+    initialCart = cart
+    return cart
+  }
 }
 
-let initialCart = []
 
 const setCartAmount = (cartItemsArray) => {
   let price = 0
