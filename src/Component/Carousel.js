@@ -27,7 +27,7 @@ export const Carousel = () => {
     index === carouselList.length - 1 ? setIndex(0) : setIndex((current => current + 1))
   }
   const previousClick = () => {
-    index === 0 ? setIndex(carouselList.len0h - 1) : setIndex((current => current - 1))
+    index === 0 ? setIndex(carouselList.length - 1) : setIndex((current => current - 1))
   }
 
   useEffect(() => {
