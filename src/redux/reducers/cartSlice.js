@@ -45,7 +45,17 @@ const setCartQty = (cartItemsArray) => {
 export const cartSlice = createSlice({
   name: 'cart',
   initialState: {
-    cartItems: initialCart(),
+    cartItems: [{
+      brand: "Apple",
+      category: "phone",
+      id: 7,
+      imgUrl: "https://image.darty.com/telephonie/telephone_mobile_seul/iphone/apple_iph13_mn_128go_wh_5g_t2109157008198A_000956964.png",
+      name: "iPhone 13 mini White 64Go",
+      offerPercent: 10,
+      price: 809,
+      qty: 1,
+      stock: 30
+    }],
     cartAmount: setCartAmount(initialCart()),
     itemsQty: setCartQty(initialCart())
   },
