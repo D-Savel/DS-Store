@@ -9,7 +9,7 @@ const initialCart = () => {
   let initialCart = []
   let cart = JSON.parse(localStorage.getItem('cart'))
   console.log('initialCart', cart)
-  if (cart !== []) {
+  if (cart !== [] || cart !== null || !cart) {
     initialCart = cart
     return initialCart
   }
